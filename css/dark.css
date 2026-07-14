@@ -1,0 +1,365 @@
+/* ==========================================================
+   Smart Typing
+   Brand : SmartApps Studio
+   File : dark.css
+   Version : 1.0
+   Theme : Dark Mode
+========================================================== */
+
+/* ==========================================================
+   DARK MODE
+========================================================== */
+
+body.dark-mode{
+
+    --background:#0f172a;
+
+    --surface:#1e293b;
+
+    --border:#334155;
+
+    --text:#f8fafc;
+
+    --text-light:#cbd5e1;
+
+    --primary:#3b82f6;
+
+    --primary-dark:#2563eb;
+
+    --shadow-small:
+        0 2px 8px rgba(0,0,0,.45);
+
+    --shadow-medium:
+        0 12px 28px rgba(0,0,0,.55);
+
+    background:var(--background);
+
+    color:var(--text);
+
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+body.dark-mode #site-header{
+
+    background:#111827;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+body.dark-mode #main-navigation a{
+
+    color:var(--text);
+
+}
+
+body.dark-mode #main-navigation a:hover,
+
+body.dark-mode #main-navigation .active{
+
+    color:var(--primary);
+
+}
+
+/* ==========================================================
+   HERO
+========================================================== */
+
+body.dark-mode #hero{
+
+    background:linear-gradient(
+        135deg,
+        #111827,
+        #1e293b
+    );
+
+}
+
+body.dark-mode .hero-badge{
+
+    background:#1d4ed8;
+
+    color:#ffffff;
+
+}
+
+/* ==========================================================
+   CARDS
+========================================================== */
+
+body.dark-mode .practice-card,
+
+body.dark-mode .feature-card,
+
+body.dark-mode .result-card,
+
+body.dark-mode .stat-card,
+
+body.dark-mode .faq-item,
+
+body.dark-mode .typing-wrapper,
+
+body.dark-mode .challenge-card,
+
+body.dark-mode .ad-container{
+
+    background:var(--surface);
+
+    border-color:var(--border);
+
+}
+
+body.dark-mode .practice-card:hover,
+
+body.dark-mode .feature-card:hover{
+
+    border-color:var(--primary);
+
+}
+
+/* ==========================================================
+   TYPING PASSAGE
+========================================================== */
+
+body.dark-mode #typing-passage{
+
+    background:#111827;
+
+    color:var(--text);
+
+}
+
+body.dark-mode #typing-input{
+
+    background:#0f172a;
+
+    color:var(--text);
+
+    border-color:var(--border);
+
+}
+
+body.dark-mode #typing-input::placeholder{
+
+    color:#94a3b8;
+
+}
+
+body.dark-mode #typing-input:focus{
+
+    border-color:var(--primary);
+
+}
+/* ==========================================================
+   CONTROLS
+========================================================== */
+
+body.dark-mode .control-group select,
+body.dark-mode .control-group input{
+
+    background:#0f172a;
+
+    color:var(--text);
+
+    border-color:var(--border);
+
+}
+
+body.dark-mode .control-group label{
+
+    color:var(--text);
+
+}
+
+body.dark-mode .control-group select:focus,
+body.dark-mode .control-group input:focus{
+
+    border-color:var(--primary);
+
+}
+
+/* ==========================================================
+   BUTTONS
+========================================================== */
+
+body.dark-mode .btn-secondary{
+
+    background:#334155;
+
+    color:#f8fafc;
+
+}
+
+body.dark-mode .btn-secondary:hover{
+
+    background:#475569;
+
+}
+
+body.dark-mode #theme-toggle{
+
+    background:#334155;
+
+    color:#f8fafc;
+
+}
+
+body.dark-mode #login-button{
+
+    background:var(--primary);
+
+}
+
+/* ==========================================================
+   RESULT & STATS
+========================================================== */
+
+body.dark-mode .stat-card strong,
+body.dark-mode .result-card p{
+
+    color:#60a5fa;
+
+}
+
+body.dark-mode .stat-title,
+body.dark-mode .result-card h3,
+body.dark-mode .feature-card p,
+body.dark-mode .practice-card p,
+body.dark-mode .faq-item p{
+
+    color:#cbd5e1;
+
+}
+
+/* ==========================================================
+   CHARACTER STATES
+========================================================== */
+
+body.dark-mode .correct{
+
+    color:#4ade80;
+
+}
+
+body.dark-mode .incorrect{
+
+    color:#f87171;
+
+    background:rgba(248,113,113,.12);
+
+}
+
+body.dark-mode .current{
+
+    background:#facc15;
+
+    color:#111827;
+
+}
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+body.dark-mode #site-footer{
+
+    background:#020617;
+
+}
+
+body.dark-mode .footer-links a,
+body.dark-mode .footer-contact p,
+body.dark-mode .footer-brand p{
+
+    color:#cbd5e1;
+
+}
+
+body.dark-mode .footer-links a:hover{
+
+    color:#ffffff;
+
+}
+
+/* ==========================================================
+   STICKY ADS
+========================================================== */
+
+body.dark-mode .desktop-ad,
+body.dark-mode #mobile-bottom-ad{
+
+    background:#111827;
+
+    border-color:#334155;
+
+    color:#cbd5e1;
+
+}
+
+/* ==========================================================
+   SCROLLBAR
+========================================================== */
+
+body.dark-mode ::-webkit-scrollbar-track{
+
+    background:#0f172a;
+
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb{
+
+    background:#475569;
+
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb:hover{
+
+    background:#64748b;
+
+}
+
+/* ==========================================================
+   SELECTION
+========================================================== */
+
+body.dark-mode ::selection{
+
+    background:#2563eb;
+
+    color:#ffffff;
+
+}
+
+/* ==========================================================
+   TRANSITIONS
+========================================================== */
+
+body,
+#site-header,
+.practice-card,
+.feature-card,
+.result-card,
+.stat-card,
+.faq-item,
+.typing-wrapper,
+#typing-passage,
+#typing-input,
+button,
+select,
+input,
+footer{
+
+    transition:
+        background-color .30s ease,
+        color .30s ease,
+        border-color .30s ease,
+        box-shadow .30s ease;
+
+}
+
+/* ==========================================================
+   END OF FILE
+========================================================== */
