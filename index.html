@@ -3,41 +3,56 @@
 
 <head>
 
-    <!-- ===========================================================
-         Smart Typing
-         Brand : SmartApps Studio
-         Repository : smart-typing
-         Production Version
-    ============================================================ -->
+    <!-- ==========================================================
+        Smart Typing
+        Brand : SmartApps Studio
+        Repository : smart-typing
+        File : index.html
+        Version : 1.0 Production
+    =========================================================== -->
 
     <meta charset="UTF-8">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+        content="width=device-width, initial-scale=1.0">
 
-    <!-- ================= SEO ================= -->
-
-    <title>Smart Typing | Free Online Typing Practice Test | SmartApps Studio</title>
+    <title>
+        Smart Typing | Free Online Typing Practice | SmartApps Studio
+    </title>
 
     <meta name="description"
-        content="Practice typing online with Smart Typing by SmartApps Studio. Improve speed, accuracy, WPM and prepare for competitive exams using professional typing lessons.">
+        content="Smart Typing is a professional online typing practice platform by SmartApps Studio. Improve typing speed, WPM, accuracy and prepare for competitive typing exams.">
 
     <meta name="keywords"
-        content="typing practice, typing test, online typing, WPM test, typing speed, English typing, Hindi typing, Marathi typing, government typing exam">
+        content="typing practice, typing test, typing website, online typing, english typing, hindi typing, marathi typing, typing speed">
 
     <meta name="author"
         content="SmartApps Studio">
 
     <meta name="robots"
-        content="index, follow">
+        content="index,follow">
 
     <meta name="theme-color"
-        content="#0d6efd">
+        content="#2563eb">
+
+    <meta name="application-name"
+        content="Smart Typing">
+
+    <meta name="apple-mobile-web-app-capable"
+        content="yes">
+
+    <meta name="apple-mobile-web-app-status-bar-style"
+        content="default">
+
+    <meta name="apple-mobile-web-app-title"
+        content="Smart Typing">
 
     <link rel="canonical"
         href="https://typing.smartappsstudio.in/">
 
-    <!-- ================= Open Graph ================= -->
+    <!-- Open Graph -->
 
     <meta property="og:type"
         content="website">
@@ -46,7 +61,7 @@
         content="Smart Typing">
 
     <meta property="og:description"
-        content="Professional Online Typing Practice Platform">
+        content="Professional Typing Practice Website">
 
     <meta property="og:url"
         content="https://typing.smartappsstudio.in/">
@@ -54,7 +69,7 @@
     <meta property="og:image"
         content="images/banner.png">
 
-    <!-- ================= Twitter ================= -->
+    <!-- Twitter -->
 
     <meta name="twitter:card"
         content="summary_large_image">
@@ -63,26 +78,26 @@
         content="Smart Typing">
 
     <meta name="twitter:description"
-        content="Professional Typing Practice Website">
+        content="Professional Online Typing Practice Platform">
 
     <meta name="twitter:image"
         content="images/banner.png">
 
-    <!-- ================= Icons ================= -->
+    <!-- Icons -->
 
     <link rel="icon"
-        href="images/favicon.png"
-        type="image/png">
+        type="image/png"
+        href="images/favicon.png">
 
     <link rel="apple-touch-icon"
         href="images/favicon.png">
 
-    <!-- ================= Manifest ================= -->
+    <!-- Manifest -->
 
     <link rel="manifest"
         href="manifest.json">
 
-    <!-- ================= CSS ================= -->
+    <!-- CSS -->
 
     <link rel="stylesheet"
         href="css/style.css">
@@ -96,22 +111,20 @@
     <link rel="stylesheet"
         href="css/animation.css">
 
-    <!-- ================= Schema ================= -->
+    <!-- Schema -->
 
     <script type="application/ld+json">
-
 {
 "@context":"https://schema.org",
 "@type":"WebSite",
 "name":"Smart Typing",
 "url":"https://typing.smartappsstudio.in",
-"description":"Professional Typing Practice Website",
+"description":"Professional Typing Practice Platform",
 "publisher":{
 "@type":"Organization",
 "name":"SmartApps Studio"
 }
 }
-
 </script>
 
 </head>
@@ -119,182 +132,1205 @@
 <body>
 
     <!-- ==========================================================
-         HEADER
+        HEADER
     =========================================================== -->
 
-    <header id="header">
+    <header id="site-header">
 
         <div class="container">
 
-            <div class="logo-area">
+            <!-- Logo -->
 
-                <img
-                    src="images/logo.png"
+            <a href="index.html"
+                class="logo">
+
+                <img src="images/logo.png"
                     alt="Smart Typing Logo">
 
-                <h1>
-                    Smart Typing
-                </h1>
+                <div class="logo-text">
 
-            </div>
+                    <span class="brand">
+                        SmartApps Studio
+                    </span>
 
-            <nav>
+                    <h1>
+                        Smart Typing
+                    </h1>
+
+                </div>
+
+            </a>
+
+            <!-- Navigation -->
+
+            <nav
+                id="main-navigation">
 
                 <ul>
 
-                    <li><a href="index.html">Home</a></li>
+                    <li>
 
-                    <li><a href="#">Practice</a></li>
+                        <a
+                            href="index.html"
+                            class="active">
 
-                    <li><a href="#">Leaderboard</a></li>
+                            Home
 
-                    <li><a href="#">Daily Challenge</a></li>
+                        </a>
 
-                    <li><a href="about.html">About</a></li>
+                    </li>
 
-                    <li><a href="contact.html">Contact</a></li>
+                    <li>
+
+                        <a href="#practice">
+
+                            Practice
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="#features">
+
+                            Features
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="#challenge">
+
+                            Daily Challenge
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="about.html">
+
+                            About
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="contact.html">
+
+                            Contact
+
+                        </a>
+
+                    </li>
 
                 </ul>
 
             </nav>
+
+            <!-- Header Actions -->
+
+            <div class="header-actions">
+
+                <button
+                    id="theme-toggle"
+                    aria-label="Toggle Theme">
+
+                    🌙
+
+                </button>
+
+                <button
+                    id="login-button">
+
+                    Login
+
+                </button>
+
+                <button
+                    id="mobile-menu-button"
+                    aria-label="Open Menu">
+
+                    ☰
+
+                </button>
+
+            </div>
 
         </div>
 
     </header>
 
     <!-- ==========================================================
-         Header Advertisement
+        HEADER ADS
     =========================================================== -->
 
-    <section id="header-ad">
+    <section
+        id="header-ad"
+        class="ad-container">
 
-        <!-- Google AdSense -->
+        <!-- Google AdSense Header Banner -->
 
     </section>
 
     <!-- ==========================================================
-         HERO
+        HERO SECTION
     =========================================================== -->
 
-    <main>
+    <section
+        id="hero">
 
-        <section id="hero">
+        <div class="container">
 
-            <div class="container">
+            <div class="hero-content">
+
+                <span class="hero-badge">
+
+                    🚀 Professional Typing Practice Platform
+
+                </span>
 
                 <h2>
-                    Improve Your Typing Speed Professionally
+
+                    Increase Your Typing Speed
+                    With Real Time Analysis
+
                 </h2>
 
                 <p>
 
-                    Practice typing online, increase your WPM,
-                    improve accuracy and prepare for typing exams.
+                    Practice English, Hindi and Marathi typing,
+                    improve WPM, accuracy and prepare for
+                    government typing exams with detailed statistics.
 
                 </p>
 
-                <a href="#typing-area"
-                    class="primary-btn">
+                <div class="hero-buttons">
 
-                    Start Typing
+                    <a
+                        href="#typing-panel"
+                        class="btn btn-primary">
 
-                </a>
+                        Start Practice
+
+                    </a>
+
+                    <a
+                        href="#features"
+                        class="btn btn-secondary">
+
+                        Explore Features
+
+                    </a>
+
+                </div>
 
             </div>
 
-        </section>
+            <div class="hero-image">
 
-        <!-- ======================================================
-             Settings Panel
-        ======================================================= -->
+                <img
+                    src="images/banner.png"
+                    alt="Typing Practice Banner">
 
-        <section id="settings-panel">
+            </div>
 
-        </section>
+        </div>
 
-        <!-- ======================================================
-             Typing Area
-        ======================================================= -->
+    </section>
 
-        <section id="typing-area">
+    <!-- ==========================================================
+        QUICK PRACTICE
+    =========================================================== -->
 
-            <div class="container">
+    <section
+        id="practice">
 
-                <!-- Passage -->
+        <div class="container">
 
-                <article id="passage">
+            <div class="section-heading">
+
+                <h2>
+
+                    Quick Practice
+
+                </h2>
+
+                <p>
+
+                    Select your preferred practice mode.
+
+                </p>
+
+            </div>
+
+            <div class="practice-grid">
+
+                <article class="practice-card">
+
+                    <h3>
+
+                        30 WPM
+
+                    </h3>
+
+                    <p>
+
+                        Beginner Speed Practice
+
+                    </p>
 
                 </article>
 
-                <!-- Typing Input -->
+                <article class="practice-card">
+
+                    <h3>
+
+                        40 WPM
+
+                    </h3>
+
+                    <p>
+
+                        Intermediate Practice
+
+                    </p>
+
+                </article>
+
+                <article class="practice-card">
+
+                    <h3>
+
+                        50 WPM
+
+                    </h3>
+
+                    <p>
+
+                        Competitive Exam
+
+                    </p>
+
+                </article>
+
+                <article class="practice-card">
+
+                    <h3>
+
+                        60 WPM
+
+                    </h3>
+
+                    <p>
+
+                        Advanced Users
+
+                    </p>
+
+                </article>
+
+                <article class="practice-card">
+
+                    <h3>
+
+                        80 WPM
+
+                    </h3>
+
+                    <p>
+
+                        Professional Practice
+
+                    </p>
+
+                </article>
+
+                <article class="practice-card">
+
+                    <h3>
+
+                        100 WPM
+
+                    </h3>
+
+                    <p>
+
+                        Expert Challenge
+
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         Part 1 Ends Here
+         Continue in Part 2
+    ========================== -->
+        <!-- ==========================================================
+        TYPING CONTROLS
+    =========================================================== -->
+
+    <section id="typing-controls">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <h2>
+                    Practice Settings
+                </h2>
+
+                <p>
+                    Customize your typing practice before starting.
+                </p>
+
+            </div>
+
+            <div class="controls-grid">
+
+                <!-- Language -->
+
+                <div class="control-group">
+
+                    <label for="language-select">
+
+                        Language
+
+                    </label>
+
+                    <select id="language-select">
+
+                        <option value="english">
+                            English
+                        </option>
+
+                        <option value="hindi">
+                            Hindi
+                        </option>
+
+                        <option value="marathi">
+                            Marathi
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <!-- Category -->
+
+                <div class="control-group">
+
+                    <label for="category-select">
+
+                        Category
+
+                    </label>
+
+                    <select id="category-select">
+
+                        <option>
+                            Beginner
+                        </option>
+
+                        <option>
+                            Intermediate
+                        </option>
+
+                        <option>
+                            Advanced
+                        </option>
+
+                        <option>
+                            Government Exam
+                        </option>
+
+                        <option>
+                            Programming Code
+                        </option>
+
+                        <option>
+                            Numbers Practice
+                        </option>
+
+                        <option>
+                            Symbols Practice
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <!-- Duration -->
+
+                <div class="control-group">
+
+                    <label for="timer-select">
+
+                        Duration
+
+                    </label>
+
+                    <select id="timer-select">
+
+                        <option value="60">
+
+                            1 Minute
+
+                        </option>
+
+                        <option value="120">
+
+                            2 Minutes
+
+                        </option>
+
+                        <option value="300">
+
+                            5 Minutes
+
+                        </option>
+
+                        <option value="600">
+
+                            10 Minutes
+
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <!-- Font Family -->
+
+                <div class="control-group">
+
+                    <label for="font-family">
+
+                        Font
+
+                    </label>
+
+                    <select id="font-family">
+
+                        <option>
+
+                            Segoe UI
+
+                        </option>
+
+                        <option>
+
+                            Arial
+
+                        </option>
+
+                        <option>
+
+                            Verdana
+
+                        </option>
+
+                        <option>
+
+                            Georgia
+
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <!-- Font Size -->
+
+                <div class="control-group">
+
+                    <label for="font-size">
+
+                        Font Size
+
+                    </label>
+
+                    <input
+                        id="font-size"
+                        type="range"
+                        min="16"
+                        max="36"
+                        value="24">
+
+                </div>
+
+                <!-- Panel Width -->
+
+                <div class="control-group">
+
+                    <label for="panel-width">
+
+                        Panel Width
+
+                    </label>
+
+                    <input
+                        id="panel-width"
+                        type="range"
+                        min="70"
+                        max="100"
+                        value="85">
+
+                </div>
+
+            </div>
+
+            <div class="control-buttons">
+
+                <button
+                    id="restart-button"
+                    class="btn btn-primary">
+
+                    Restart
+
+                </button>
+
+                <button
+                    id="next-button"
+                    class="btn btn-secondary">
+
+                    Next Passage
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================================================
+        LIVE STATISTICS
+    =========================================================== -->
+
+    <section id="statistics-bar">
+
+        <div class="container">
+
+            <div class="stat-card">
+
+                <span class="stat-title">
+
+                    Timer
+
+                </span>
+
+                <strong id="timer">
+
+                    01:00
+
+                </strong>
+
+            </div>
+
+            <div class="stat-card">
+
+                <span class="stat-title">
+
+                    Gross WPM
+
+                </span>
+
+                <strong id="gross-wpm">
+
+                    0
+
+                </strong>
+
+            </div>
+
+            <div class="stat-card">
+
+                <span class="stat-title">
+
+                    Net WPM
+
+                </span>
+
+                <strong id="net-wpm">
+
+                    0
+
+                </strong>
+
+            </div>
+
+            <div class="stat-card">
+
+                <span class="stat-title">
+
+                    Accuracy
+
+                </span>
+
+                <strong id="accuracy">
+
+                    100%
+
+                </strong>
+
+            </div>
+
+            <div class="stat-card">
+
+                <span class="stat-title">
+
+                    Errors
+
+                </span>
+
+                <strong id="errors">
+
+                    0
+
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================================================
+        TYPING PANEL
+    =========================================================== -->
+
+    <section id="typing-panel">
+
+        <div class="container">
+
+            <div class="typing-wrapper">
+
+                <article
+                    id="typing-passage">
+
+                    Loading passage...
+
+                </article>
 
                 <textarea
                     id="typing-input"
+                    placeholder="Start typing here..."
+                    spellcheck="false"
                     autocomplete="off"
                     autocorrect="off"
-                    autocapitalize="off"
-                    spellcheck="false"
-                    placeholder="Start typing here..."></textarea>
+                    autocapitalize="off">
+
+                </textarea>
 
             </div>
 
-        </section>
+        </div>
 
-        <!-- ======================================================
-             Statistics
-        ======================================================= -->
-
-        <section id="statistics">
-
-            <div class="container">
-
-                <div id="timer"></div>
-
-                <div id="gross-wpm"></div>
-
-                <div id="net-wpm"></div>
-
-                <div id="accuracy"></div>
-
-                <div id="errors"></div>
-
-            </div>
-
-        </section>
-
-        <!-- ======================================================
-             Middle Advertisement
-        ======================================================= -->
-
-        <section id="middle-ad">
-
-        </section>
-
-        <!-- ======================================================
-             Result
-        ======================================================= -->
-
-        <section id="result">
-
-        </section>
-
-        <!-- ======================================================
-             Result Advertisement
-        ======================================================= -->
-
-        <section id="result-ad">
-
-        </section>
-
-    </main>
-
-    <!-- ==========================================================
-         FOOTER
+    </section>
+        <!-- ==========================================================
+        RESULT SECTION
     =========================================================== -->
 
-    <footer>
+    <section id="result-section">
 
         <div class="container">
+
+            <div class="section-heading">
+
+                <h2>
+
+                    Your Result
+
+                </h2>
+
+                <p>
+
+                    Detailed performance report after every typing test.
+
+                </p>
+
+            </div>
+
+            <div class="result-grid">
+
+                <article class="result-card">
+
+                    <h3>Gross WPM</h3>
+
+                    <p id="result-gross-wpm">0</p>
+
+                </article>
+
+                <article class="result-card">
+
+                    <h3>Net WPM</h3>
+
+                    <p id="result-net-wpm">0</p>
+
+                </article>
+
+                <article class="result-card">
+
+                    <h3>Accuracy</h3>
+
+                    <p id="result-accuracy">100%</p>
+
+                </article>
+
+                <article class="result-card">
+
+                    <h3>Errors</h3>
+
+                    <p id="result-errors">0</p>
+
+                </article>
+
+                <article class="result-card">
+
+                    <h3>Characters</h3>
+
+                    <p id="result-characters">0</p>
+
+                </article>
+
+                <article class="result-card">
+
+                    <h3>Time</h3>
+
+                    <p id="result-time">00:00</p>
+
+                </article>
+
+            </div>
+
+            <div class="result-actions">
+
+                <button
+                    id="download-certificate"
+                    class="btn btn-primary">
+
+                    Download Certificate
+
+                </button>
+
+                <button
+                    id="practice-again"
+                    class="btn btn-secondary">
+
+                    Practice Again
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================================================
+        MIDDLE ADS
+    =========================================================== -->
+
+    <section
+        id="middle-ad"
+        class="ad-container">
+
+        <!-- Google AdSense Responsive Banner -->
+
+    </section>
+
+    <!-- ==========================================================
+        DAILY CHALLENGE
+    =========================================================== -->
+
+    <section id="challenge">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <h2>
+
+                    Daily Challenge
+
+                </h2>
+
+                <p>
+
+                    Complete today's challenge and improve your typing every day.
+
+                </p>
+
+            </div>
+
+            <div class="challenge-card">
+
+                <h3>
+
+                    Today's Challenge
+
+                </h3>
+
+                <p>
+
+                    Finish a 2-minute typing test with at least
+                    <strong>98% Accuracy</strong> and
+                    <strong>50 WPM</strong>.
+
+                </p>
+
+                <button
+                    class="btn btn-primary"
+                    id="challenge-button">
+
+                    Start Challenge
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================================================
+        FEATURES
+    =========================================================== -->
+
+    <section id="features">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <h2>
+
+                    Features
+
+                </h2>
+
+                <p>
+
+                    Everything you need to become a faster typist.
+
+                </p>
+
+            </div>
+
+            <div class="feature-grid">
+
+                <article class="feature-card">
+
+                    <h3>Live WPM</h3>
+
+                    <p>
+                        Real-time typing speed calculation.
+                    </p>
+
+                </article>
+
+                <article class="feature-card">
+
+                    <h3>Accuracy</h3>
+
+                    <p>
+                        Instant typing accuracy monitoring.
+                    </p>
+
+                </article>
+
+                <article class="feature-card">
+
+                    <h3>Character Highlight</h3>
+
+                    <p>
+                        Correct, wrong and current character highlighting.
+                    </p>
+
+                </article>
+
+                <article class="feature-card">
+
+                    <h3>Dark Mode</h3>
+
+                    <p>
+                        Comfortable typing experience during night.
+                    </p>
+
+                </article>
+
+                <article class="feature-card">
+
+                    <h3>Multiple Languages</h3>
+
+                    <p>
+                        English, Hindi and Marathi support.
+                    </p>
+
+                </article>
+
+                <article class="feature-card">
+
+                    <h3>Responsive Design</h3>
+
+                    <p>
+                        Optimized for desktop, tablet and mobile devices.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================================================
+        RESULT ADVERTISEMENT
+    =========================================================== -->
+
+    <section
+        id="result-ad"
+        class="ad-container">
+
+        <!-- Google AdSense Result Banner -->
+
+    </section>
+        <!-- ==========================================================
+        FAQ SECTION
+    =========================================================== -->
+
+    <section id="faq">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <h2>
+
+                    Frequently Asked Questions
+
+                </h2>
+
+                <p>
+
+                    Common questions about Smart Typing.
+
+                </p>
+
+            </div>
+
+            <div class="faq-list">
+
+                <article class="faq-item">
+
+                    <h3>
+
+                        Is Smart Typing free to use?
+
+                    </h3>
+
+                    <p>
+
+                        Yes. Core typing practice is completely free.
+                        Premium features will be available in future updates.
+
+                    </p>
+
+                </article>
+
+                <article class="faq-item">
+
+                    <h3>
+
+                        Which languages are supported?
+
+                    </h3>
+
+                    <p>
+
+                        English, Hindi and Marathi.
+                        More languages will be added in future versions.
+
+                    </p>
+
+                </article>
+
+                <article class="faq-item">
+
+                    <h3>
+
+                        Can I practice for government typing exams?
+
+                    </h3>
+
+                    <p>
+
+                        Yes. Dedicated government exam passages and
+                        timed practice modes will be available.
+
+                    </p>
+
+                </article>
+
+                <article class="faq-item">
+
+                    <h3>
+
+                        Do I need to create an account?
+
+                    </h3>
+
+                    <p>
+
+                        No. You can practice without logging in.
+                        Login will be required only for history,
+                        leaderboard, certificates and cloud sync.
+
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================================================
+        FOOTER
+    =========================================================== -->
+
+    <footer id="site-footer">
+
+        <div class="container">
+
+            <div class="footer-brand">
+
+                <img
+                    src="images/logo.png"
+                    alt="Smart Typing Logo">
+
+                <div>
+
+                    <h2>
+
+                        Smart Typing
+
+                    </h2>
+
+                    <p>
+
+                        Developed by SmartApps Studio
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="footer-links">
+
+                <h3>
+
+                    Quick Links
+
+                </h3>
+
+                <ul>
+
+                    <li>
+
+                        <a href="index.html">
+
+                            Home
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="about.html">
+
+                            About
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="contact.html">
+
+                            Contact
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="privacy-policy.html">
+
+                            Privacy Policy
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="terms.html">
+
+                            Terms & Conditions
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="footer-contact">
+
+                <h3>
+
+                    Contact
+
+                </h3>
+
+                <p>
+
+                    smartapps.studio27@gmail.com
+
+                </p>
+
+                <p>
+
+                    India
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
 
             <p>
 
@@ -303,44 +1339,43 @@
 
             </p>
 
-            <nav>
-
-                <a href="privacy-policy.html">
-                    Privacy Policy
-                </a>
-
-                <a href="terms.html">
-                    Terms
-                </a>
-
-                <a href="about.html">
-                    About
-                </a>
-
-                <a href="contact.html">
-                    Contact
-                </a>
-
-            </nav>
-
         </div>
 
     </footer>
 
     <!-- ==========================================================
-         Desktop Sticky Ads
+        DESKTOP STICKY ADS
     =========================================================== -->
 
-    <aside id="left-sticky-ad">
+    <aside
+        id="left-sticky-ad"
+        class="desktop-ad">
+
+        <!-- Desktop Left Sticky Ad -->
 
     </aside>
 
-    <aside id="right-sticky-ad">
+    <aside
+        id="right-sticky-ad"
+        class="desktop-ad">
+
+        <!-- Desktop Right Sticky Ad -->
 
     </aside>
 
     <!-- ==========================================================
-         JAVASCRIPT
+        MOBILE BOTTOM AD
+    =========================================================== -->
+
+    <div
+        id="mobile-bottom-ad">
+
+        <!-- Mobile Responsive Ad -->
+
+    </div>
+
+    <!-- ==========================================================
+        JAVASCRIPT
     =========================================================== -->
 
     <script src="js/app.js"></script>
@@ -349,9 +1384,9 @@
 
     <script src="js/timer.js"></script>
 
-    <script src="js/accuracy.js"></script>
-
     <script src="js/wpm.js"></script>
+
+    <script src="js/accuracy.js"></script>
 
     <script src="js/settings.js"></script>
 
