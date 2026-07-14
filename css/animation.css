@@ -1,0 +1,475 @@
+/* ==========================================================
+   Smart Typing
+   Brand : SmartApps Studio
+   File : animation.css
+   Version : 1.0
+   Purpose : Animations & Effects
+========================================================== */
+
+/* ==========================================================
+   FADE IN
+========================================================== */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+.fade-in{
+
+    animation:fadeIn .5s ease-in-out;
+
+}
+
+/* ==========================================================
+   FADE UP
+========================================================== */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.fade-up{
+
+    animation:fadeUp .6s ease forwards;
+
+}
+
+/* ==========================================================
+   SCALE IN
+========================================================== */
+
+@keyframes scaleIn{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.9);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+.scale-in{
+
+    animation:scaleIn .4s ease;
+
+}
+
+/* ==========================================================
+   FLOAT
+========================================================== */
+
+@keyframes floating{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.hero-image img{
+
+    animation:floating 4s ease-in-out infinite;
+
+}
+
+/* ==========================================================
+   BUTTON HOVER
+========================================================== */
+
+.btn{
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.btn:active{
+
+    transform:scale(.97);
+
+}
+
+/* ==========================================================
+   CARD HOVER
+========================================================== */
+
+.practice-card,
+.feature-card,
+.result-card,
+.stat-card{
+
+    transition:
+        transform .30s ease,
+        box-shadow .30s ease,
+        border-color .30s ease;
+
+}
+
+.practice-card:hover,
+.feature-card:hover,
+.result-card:hover,
+.stat-card:hover{
+
+    transform:translateY(-8px);
+
+}
+/* ==========================================================
+   LOADING ANIMATION
+========================================================== */
+
+@keyframes loading{
+
+    0%{
+
+        transform:rotate(0deg);
+
+    }
+
+    100%{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+.loader{
+
+    width:45px;
+
+    height:45px;
+
+    border:5px solid #e5e7eb;
+
+    border-top-color:#2563eb;
+
+    border-radius:50%;
+
+    animation:loading 1s linear infinite;
+
+}
+
+
+/* ==========================================================
+   BLINK CURRENT CHARACTER
+========================================================== */
+
+@keyframes blink{
+
+    0%{
+
+        opacity:1;
+
+    }
+
+    50%{
+
+        opacity:.4;
+
+    }
+
+    100%{
+
+        opacity:1;
+
+    }
+
+}
+
+
+.current{
+
+    animation:blink 1s infinite;
+
+}
+
+
+/* ==========================================================
+   PULSE EFFECT
+========================================================== */
+
+@keyframes pulse{
+
+    0%{
+
+        box-shadow:0 0 0 0 rgba(37,99,235,.4);
+
+    }
+
+    70%{
+
+        box-shadow:0 0 0 15px rgba(37,99,235,0);
+
+    }
+
+    100%{
+
+        box-shadow:0 0 0 0 rgba(37,99,235,0);
+
+    }
+
+}
+
+
+.pulse{
+
+    animation:pulse 2s infinite;
+
+}
+
+
+/* ==========================================================
+   SLIDE FROM LEFT
+========================================================== */
+
+@keyframes slideLeft{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(-40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+
+
+.slide-left{
+
+    animation:slideLeft .6s ease;
+
+}
+
+
+/* ==========================================================
+   SLIDE FROM RIGHT
+========================================================== */
+
+@keyframes slideRight{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+
+
+.slide-right{
+
+    animation:slideRight .6s ease;
+
+}
+
+
+/* ==========================================================
+   SHAKE ERROR
+========================================================== */
+
+@keyframes shake{
+
+    0%{
+
+        transform:translateX(0);
+
+    }
+
+    25%{
+
+        transform:translateX(-5px);
+
+    }
+
+    50%{
+
+        transform:translateX(5px);
+
+    }
+
+    75%{
+
+        transform:translateX(-5px);
+
+    }
+
+    100%{
+
+        transform:translateX(0);
+
+    }
+
+}
+
+
+.error-shake{
+
+    animation:shake .35s ease;
+
+}
+
+
+/* ==========================================================
+   NOTIFICATION
+========================================================== */
+
+@keyframes toastIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(50px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+.toast{
+
+    animation:toastIn .4s ease;
+
+}
+
+
+/* ==========================================================
+   SCROLL REVEAL READY
+========================================================== */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(30px);
+
+}
+
+
+.reveal.active{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+    transition:
+
+        opacity .6s ease,
+
+        transform .6s ease;
+
+}
+
+
+/* ==========================================================
+   REDUCE MOTION SUPPORT
+========================================================== */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        animation-duration:.01ms !important;
+
+        animation-iteration-count:1 !important;
+
+        transition-duration:.01ms !important;
+
+        scroll-behavior:auto !important;
+
+    }
+
+}
+
+
+/* ==========================================================
+   END OF FILE
+========================================================== */
