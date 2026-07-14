@@ -1,67 +1,634 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+/* ==========================================================
+   Smart Typing
+   Brand : SmartApps Studio
+   File  : style.css
+   Description : Main Global Styles
+   Version : 1.0 Production
+========================================================== */
+
+/* ==========================================================
+   RESET
+========================================================== */
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
+
+/* ==========================================================
+   ROOT VARIABLES
+========================================================== */
+
+:root{
+
+    /* Colors */
+
+    --primary:#0d6efd;
+    --primary-hover:#0b5ed7;
+
+    --secondary:#1f2937;
+
+    --success:#16a34a;
+    --danger:#dc2626;
+    --warning:#f59e0b;
+
+    --background:#f5f7fb;
+    --surface:#ffffff;
+
+    --border:#d9dde5;
+
+    --text:#1f2937;
+    --text-light:#6b7280;
+
+    --shadow:
+        0 10px 25px rgba(0,0,0,.08);
+
+    /* Typography */
+
+    --font-family:
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    --heading-weight:700;
+    --body-weight:400;
+
+    --line-height:1.7;
+
+    /* Radius */
+
+    --radius-sm:8px;
+    --radius-md:12px;
+    --radius-lg:18px;
+
+    /* Transition */
+
+    --transition:.25s ease;
+
+    /* Layout */
+
+    --container:1280px;
+
+}
+
+/* ==========================================================
+   HTML
+========================================================== */
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+/* ==========================================================
+   BODY
+========================================================== */
 
 body{
 
-font-family:Arial,sans-serif;
+    background:var(--background);
 
-background:#f4f6f8;
+    color:var(--text);
 
-text-align:center;
+    font-family:var(--font-family);
 
-}
+    font-size:16px;
 
-header{
+    font-weight:var(--body-weight);
 
-background:#0d6efd;
+    line-height:var(--line-height);
 
-color:white;
-
-padding:40px;
+    overflow-x:hidden;
 
 }
 
-main{
+/* ==========================================================
+   IMAGES
+========================================================== */
 
-padding:60px 20px;
+img{
+
+    max-width:100%;
+
+    display:block;
 
 }
+
+/* ==========================================================
+   LINKS
+========================================================== */
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+/* ==========================================================
+   BUTTON
+========================================================== */
 
 button{
 
-padding:15px 30px;
+    border:none;
 
-background:#0d6efd;
+    cursor:pointer;
 
-color:white;
-
-border:none;
-
-border-radius:8px;
-
-cursor:pointer;
-
-font-size:18px;
+    font:inherit;
 
 }
 
-button:hover{
+/* ==========================================================
+   LIST
+========================================================== */
 
-background:#084298;
+ul{
+
+    list-style:none;
 
 }
+
+/* ==========================================================
+   CONTAINER
+========================================================== */
+
+.container{
+
+    width:min(95%,var(--container));
+
+    margin:auto;
+
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+#header{
+
+    background:var(--surface);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    box-shadow:var(--shadow);
+
+}
+
+#header .container{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    min-height:72px;
+
+}
+
+/* ==========================================================
+   LOGO
+========================================================== */
+
+.logo-area{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.logo-area img{
+
+    width:46px;
+
+    height:46px;
+
+    object-fit:contain;
+
+}
+
+.logo-area h1{
+
+    font-size:1.45rem;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+}
+
+/* ==========================================================
+   NAVIGATION
+========================================================== */
+
+nav ul{
+
+    display:flex;
+
+    gap:28px;
+
+    align-items:center;
+
+}
+
+nav a{
+
+    color:var(--secondary);
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+nav a:hover{
+
+    color:var(--primary);
+
+}
+
+/* ==========================================================
+   HERO
+========================================================== */
+
+#hero{
+
+    padding:80px 0;
+
+    text-align:center;
+
+}
+
+#hero h2{
+
+    font-size:3rem;
+
+    margin-bottom:20px;
+
+    font-weight:700;
+
+}
+
+#hero p{
+
+    max-width:760px;
+
+    margin:0 auto 35px;
+
+    color:var(--text-light);
+
+    font-size:1.1rem;
+
+}
+
+/* ==========================================================
+   PRIMARY BUTTON
+========================================================== */
+
+.primary-btn{
+
+    display:inline-block;
+
+    background:var(--primary);
+
+    color:#ffffff;
+
+    padding:15px 36px;
+
+    border-radius:var(--radius-md);
+
+    transition:var(--transition);
+
+    font-weight:600;
+
+}
+
+.primary-btn:hover{
+
+    background:var(--primary-hover);
+
+}
+
+/* ==========================================================
+   ADS
+========================================================== */
+
+#header-ad,
+#middle-ad,
+#result-ad{
+
+    background:#eef2f7;
+
+    min-height:100px;
+
+    margin:35px auto;
+
+    border:1px dashed var(--border);
+
+    border-radius:var(--radius-md);
+
+}
+
+#left-sticky-ad,
+#right-sticky-ad{
+
+    position:fixed;
+
+    top:180px;
+
+    width:160px;
+
+    min-height:600px;
+
+    background:#eef2f7;
+
+    border:1px dashed var(--border);
+
+}
+
+#left-sticky-ad{
+
+    left:15px;
+
+}
+
+#right-sticky-ad{
+
+    right:15px;
+
+}
+
+/* ==========================================================
+   SETTINGS PANEL
+========================================================== */
+
+#settings-panel{
+
+    margin:40px auto;
+
+    background:var(--surface);
+
+    border-radius:var(--radius-lg);
+
+    box-shadow:var(--shadow);
+
+    padding:25px;
+
+}
+
+/* ==========================================================
+   TYPING AREA
+========================================================== */
+
+#typing-area{
+
+    margin:35px auto;
+
+}
+
+#passage{
+
+    background:var(--surface);
+
+    border-radius:var(--radius-lg);
+
+    box-shadow:var(--shadow);
+
+    padding:30px;
+
+    min-height:220px;
+
+    font-size:1.45rem;
+
+    line-height:2;
+
+}
+
+#typing-input{
+
+    margin-top:25px;
+
+    width:100%;
+
+    min-height:180px;
+
+    resize:vertical;
+
+    padding:20px;
+
+    border:2px solid var(--border);
+
+    border-radius:var(--radius-md);
+
+    font-size:1.2rem;
+
+    outline:none;
+
+    transition:var(--transition);
+
+}
+
+#typing-input:focus{
+
+    border-color:var(--primary);
+
+}
+
+/* ==========================================================
+   STATISTICS
+========================================================== */
+
+#statistics{
+
+    margin:45px auto;
+
+}
+
+#statistics .container{
+
+    display:grid;
+
+    grid-template-columns:repeat(5,1fr);
+
+    gap:18px;
+
+}
+
+#statistics .container div{
+
+    background:var(--surface);
+
+    padding:22px;
+
+    border-radius:var(--radius-md);
+
+    box-shadow:var(--shadow);
+
+    text-align:center;
+
+    font-weight:700;
+
+}
+
+/* ==========================================================
+   RESULT
+========================================================== */
+
+#result{
+
+    margin:45px auto;
+
+    background:var(--surface);
+
+    min-height:180px;
+
+    border-radius:var(--radius-lg);
+
+    box-shadow:var(--shadow);
+
+}
+
+/* ==========================================================
+   FOOTER
+========================================================== */
 
 footer{
 
-margin-top:50px;
+    margin-top:60px;
 
-padding:20px;
+    background:#0b1220;
 
-background:#222;
+    color:#ffffff;
 
-color:white;
+    padding:40px 0;
 
 }
+
+footer .container{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:25px;
+
+}
+
+footer nav{
+
+    display:flex;
+
+    gap:22px;
+
+}
+
+footer nav a{
+
+    color:#ffffff;
+
+    transition:var(--transition);
+
+}
+
+footer nav a:hover{
+
+    color:#7ab6ff;
+
+}
+
+/* ==========================================================
+   CHARACTER COLORS
+   (Used by typing.js)
+========================================================== */
+
+.correct{
+
+    color:var(--success);
+
+}
+
+.incorrect{
+
+    color:var(--danger);
+
+}
+
+.current{
+
+    background:#fff4a3;
+
+    border-radius:4px;
+
+}
+
+/* ==========================================================
+   HIDDEN
+========================================================== */
+
+.hidden{
+
+    display:none !important;
+
+}
+
+/* ==========================================================
+   SELECTION
+========================================================== */
+
+::selection{
+
+    background:var(--primary);
+
+    color:#ffffff;
+
+}
+
+/* ==========================================================
+   SCROLLBAR
+========================================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#edf0f5;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#b8c0cc;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#9aa5b4;
+
+}
+
+/* ==========================================================
+   END OF FILE
+========================================================== */
