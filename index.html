@@ -3,59 +3,363 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <!-- ===========================================================
+         Smart Typing
+         Brand : SmartApps Studio
+         Repository : smart-typing
+         Production Version
+    ============================================================ -->
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-<title>Smart Typing - Free Online Typing Practice</title>
+    <!-- ================= SEO ================= -->
 
-<meta name="description" content="Practice Typing Online and Improve Your Speed">
+    <title>Smart Typing | Free Online Typing Practice Test | SmartApps Studio</title>
 
-<meta name="keywords" content="Typing,Typing Test,WPM,Keyboard Practice">
+    <meta name="description"
+        content="Practice typing online with Smart Typing by SmartApps Studio. Improve speed, accuracy, WPM and prepare for competitive exams using professional typing lessons.">
 
-<meta name="author" content="SmartApps Studio">
+    <meta name="keywords"
+        content="typing practice, typing test, online typing, WPM test, typing speed, English typing, Hindi typing, Marathi typing, government typing exam">
 
-<link rel="stylesheet" href="css/style.css">
+    <meta name="author"
+        content="SmartApps Studio">
+
+    <meta name="robots"
+        content="index, follow">
+
+    <meta name="theme-color"
+        content="#0d6efd">
+
+    <link rel="canonical"
+        href="https://typing.smartappsstudio.in/">
+
+    <!-- ================= Open Graph ================= -->
+
+    <meta property="og:type"
+        content="website">
+
+    <meta property="og:title"
+        content="Smart Typing">
+
+    <meta property="og:description"
+        content="Professional Online Typing Practice Platform">
+
+    <meta property="og:url"
+        content="https://typing.smartappsstudio.in/">
+
+    <meta property="og:image"
+        content="images/banner.png">
+
+    <!-- ================= Twitter ================= -->
+
+    <meta name="twitter:card"
+        content="summary_large_image">
+
+    <meta name="twitter:title"
+        content="Smart Typing">
+
+    <meta name="twitter:description"
+        content="Professional Typing Practice Website">
+
+    <meta name="twitter:image"
+        content="images/banner.png">
+
+    <!-- ================= Icons ================= -->
+
+    <link rel="icon"
+        href="images/favicon.png"
+        type="image/png">
+
+    <link rel="apple-touch-icon"
+        href="images/favicon.png">
+
+    <!-- ================= Manifest ================= -->
+
+    <link rel="manifest"
+        href="manifest.json">
+
+    <!-- ================= CSS ================= -->
+
+    <link rel="stylesheet"
+        href="css/style.css">
+
+    <link rel="stylesheet"
+        href="css/responsive.css">
+
+    <link rel="stylesheet"
+        href="css/dark.css">
+
+    <link rel="stylesheet"
+        href="css/animation.css">
+
+    <!-- ================= Schema ================= -->
+
+    <script type="application/ld+json">
+
+{
+"@context":"https://schema.org",
+"@type":"WebSite",
+"name":"Smart Typing",
+"url":"https://typing.smartappsstudio.in",
+"description":"Professional Typing Practice Website",
+"publisher":{
+"@type":"Organization",
+"name":"SmartApps Studio"
+}
+}
+
+</script>
 
 </head>
 
 <body>
 
-<header>
+    <!-- ==========================================================
+         HEADER
+    =========================================================== -->
 
-<h1>Smart Typing</h1>
+    <header id="header">
 
-<p>Practice • Improve • Achieve</p>
+        <div class="container">
 
-</header>
+            <div class="logo-area">
 
-<main>
+                <img
+                    src="images/logo.png"
+                    alt="Smart Typing Logo">
 
-<h2>Welcome</h2>
+                <h1>
+                    Smart Typing
+                </h1>
 
-<p>
-Welcome to Smart Typing.
-This website helps you improve your typing speed,
-accuracy and keyboard skills.
-</p>
+            </div>
 
-<button id="startBtn">
-Start Typing
-</button>
+            <nav>
 
-</main>
+                <ul>
 
-<footer>
+                    <li><a href="index.html">Home</a></li>
 
-<p>
+                    <li><a href="#">Practice</a></li>
 
-© 2026 SmartApps Studio
+                    <li><a href="#">Leaderboard</a></li>
 
-</p>
+                    <li><a href="#">Daily Challenge</a></li>
 
-</footer>
+                    <li><a href="about.html">About</a></li>
 
-<script src="js/app.js"></script>
+                    <li><a href="contact.html">Contact</a></li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <!-- ==========================================================
+         Header Advertisement
+    =========================================================== -->
+
+    <section id="header-ad">
+
+        <!-- Google AdSense -->
+
+    </section>
+
+    <!-- ==========================================================
+         HERO
+    =========================================================== -->
+
+    <main>
+
+        <section id="hero">
+
+            <div class="container">
+
+                <h2>
+                    Improve Your Typing Speed Professionally
+                </h2>
+
+                <p>
+
+                    Practice typing online, increase your WPM,
+                    improve accuracy and prepare for typing exams.
+
+                </p>
+
+                <a href="#typing-area"
+                    class="primary-btn">
+
+                    Start Typing
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- ======================================================
+             Settings Panel
+        ======================================================= -->
+
+        <section id="settings-panel">
+
+        </section>
+
+        <!-- ======================================================
+             Typing Area
+        ======================================================= -->
+
+        <section id="typing-area">
+
+            <div class="container">
+
+                <!-- Passage -->
+
+                <article id="passage">
+
+                </article>
+
+                <!-- Typing Input -->
+
+                <textarea
+                    id="typing-input"
+                    autocomplete="off"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    spellcheck="false"
+                    placeholder="Start typing here..."></textarea>
+
+            </div>
+
+        </section>
+
+        <!-- ======================================================
+             Statistics
+        ======================================================= -->
+
+        <section id="statistics">
+
+            <div class="container">
+
+                <div id="timer"></div>
+
+                <div id="gross-wpm"></div>
+
+                <div id="net-wpm"></div>
+
+                <div id="accuracy"></div>
+
+                <div id="errors"></div>
+
+            </div>
+
+        </section>
+
+        <!-- ======================================================
+             Middle Advertisement
+        ======================================================= -->
+
+        <section id="middle-ad">
+
+        </section>
+
+        <!-- ======================================================
+             Result
+        ======================================================= -->
+
+        <section id="result">
+
+        </section>
+
+        <!-- ======================================================
+             Result Advertisement
+        ======================================================= -->
+
+        <section id="result-ad">
+
+        </section>
+
+    </main>
+
+    <!-- ==========================================================
+         FOOTER
+    =========================================================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+
+                © 2026 SmartApps Studio.
+                All Rights Reserved.
+
+            </p>
+
+            <nav>
+
+                <a href="privacy-policy.html">
+                    Privacy Policy
+                </a>
+
+                <a href="terms.html">
+                    Terms
+                </a>
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </nav>
+
+        </div>
+
+    </footer>
+
+    <!-- ==========================================================
+         Desktop Sticky Ads
+    =========================================================== -->
+
+    <aside id="left-sticky-ad">
+
+    </aside>
+
+    <aside id="right-sticky-ad">
+
+    </aside>
+
+    <!-- ==========================================================
+         JAVASCRIPT
+    =========================================================== -->
+
+    <script src="js/app.js"></script>
+
+    <script src="js/typing.js"></script>
+
+    <script src="js/timer.js"></script>
+
+    <script src="js/accuracy.js"></script>
+
+    <script src="js/wpm.js"></script>
+
+    <script src="js/settings.js"></script>
+
+    <script src="js/leaderboard.js"></script>
+
+    <script src="js/firebase.js"></script>
+
+    <script src="js/ads.js"></script>
 
 </body>
 
