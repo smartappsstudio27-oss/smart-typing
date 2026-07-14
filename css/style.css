@@ -1,9 +1,8 @@
 /* ==========================================================
    Smart Typing
    Brand : SmartApps Studio
-   File  : style.css
-   Description : Main Global Styles
-   Version : 1.0 Production
+   File : style.css
+   Version : 1.0
 ========================================================== */
 
 /* ==========================================================
@@ -18,145 +17,81 @@
     box-sizing:border-box;
 }
 
+html{
+
+    scroll-behavior:smooth;
+
+    font-size:16px;
+
+}
+
+body{
+
+    font-family:
+        "Segoe UI",
+        Tahoma,
+        Geneva,
+        Verdana,
+        sans-serif;
+
+    background:#f5f7fb;
+
+    color:#1f2937;
+
+    line-height:1.6;
+
+    overflow-x:hidden;
+
+    min-height:100vh;
+
+}
+
 /* ==========================================================
    ROOT VARIABLES
 ========================================================== */
 
 :root{
 
-    /* Colors */
+    --primary:#2563eb;
 
-    --primary:#0d6efd;
-    --primary-hover:#0b5ed7;
+    --primary-dark:#1d4ed8;
 
-    --secondary:#1f2937;
+    --secondary:#475569;
 
     --success:#16a34a;
+
     --danger:#dc2626;
+
     --warning:#f59e0b;
 
+    --white:#ffffff;
+
     --background:#f5f7fb;
+
     --surface:#ffffff;
 
-    --border:#d9dde5;
+    --border:#e5e7eb;
 
     --text:#1f2937;
-    --text-light:#6b7280;
 
-    --shadow:
-        0 10px 25px rgba(0,0,0,.08);
+    --text-light:#64748b;
 
-    /* Typography */
+    --shadow-small:
+        0 2px 8px rgba(0,0,0,.08);
 
-    --font-family:
-        "Segoe UI",
-        Arial,
-        Helvetica,
-        sans-serif;
+    --shadow-medium:
+        0 8px 25px rgba(0,0,0,.10);
 
-    --heading-weight:700;
-    --body-weight:400;
+    --radius:14px;
 
-    --line-height:1.7;
+    --transition:.30s ease;
 
-    /* Radius */
-
-    --radius-sm:8px;
-    --radius-md:12px;
-    --radius-lg:18px;
-
-    /* Transition */
-
-    --transition:.25s ease;
-
-    /* Layout */
-
-    --container:1280px;
+    --container:1320px;
 
 }
 
 /* ==========================================================
-   HTML
-========================================================== */
-
-html{
-
-    scroll-behavior:smooth;
-
-}
-
-/* ==========================================================
-   BODY
-========================================================== */
-
-body{
-
-    background:var(--background);
-
-    color:var(--text);
-
-    font-family:var(--font-family);
-
-    font-size:16px;
-
-    font-weight:var(--body-weight);
-
-    line-height:var(--line-height);
-
-    overflow-x:hidden;
-
-}
-
-/* ==========================================================
-   IMAGES
-========================================================== */
-
-img{
-
-    max-width:100%;
-
-    display:block;
-
-}
-
-/* ==========================================================
-   LINKS
-========================================================== */
-
-a{
-
-    text-decoration:none;
-
-    color:inherit;
-
-}
-
-/* ==========================================================
-   BUTTON
-========================================================== */
-
-button{
-
-    border:none;
-
-    cursor:pointer;
-
-    font:inherit;
-
-}
-
-/* ==========================================================
-   LIST
-========================================================== */
-
-ul{
-
-    list-style:none;
-
-}
-
-/* ==========================================================
-   CONTAINER
+   GLOBAL
 ========================================================== */
 
 .container{
@@ -167,13 +102,141 @@ ul{
 
 }
 
+img{
+
+    display:block;
+
+    max-width:100%;
+
+}
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+ul{
+
+    list-style:none;
+
+}
+
+button{
+
+    border:none;
+
+    outline:none;
+
+    cursor:pointer;
+
+    font:inherit;
+
+}
+
+select,
+input,
+textarea{
+
+    font:inherit;
+
+}
+
+/* ==========================================================
+   SECTION
+========================================================== */
+
+section{
+
+    padding:70px 0;
+
+}
+
+.section-heading{
+
+    text-align:center;
+
+    margin-bottom:50px;
+
+}
+
+.section-heading h2{
+
+    font-size:2.2rem;
+
+    color:var(--text);
+
+    margin-bottom:10px;
+
+}
+
+.section-heading p{
+
+    color:var(--text-light);
+
+    font-size:1rem;
+
+}
+
+/* ==========================================================
+   BUTTONS
+========================================================== */
+
+.btn{
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:14px 30px;
+
+    border-radius:var(--radius);
+
+    transition:var(--transition);
+
+    font-weight:600;
+
+}
+
+.btn-primary{
+
+    background:var(--primary);
+
+    color:#fff;
+
+}
+
+.btn-primary:hover{
+
+    background:var(--primary-dark);
+
+}
+
+.btn-secondary{
+
+    background:#eef2ff;
+
+    color:var(--primary);
+
+}
+
+.btn-secondary:hover{
+
+    background:#dbeafe;
+
+}
+
 /* ==========================================================
    HEADER
 ========================================================== */
 
-#header{
-
-    background:var(--surface);
+#site-header{
 
     position:sticky;
 
@@ -181,11 +244,13 @@ ul{
 
     z-index:1000;
 
-    box-shadow:var(--shadow);
+    background:#fff;
+
+    box-shadow:var(--shadow-small);
 
 }
 
-#header .container{
+#site-header .container{
 
     display:flex;
 
@@ -193,7 +258,7 @@ ul{
 
     justify-content:space-between;
 
-    min-height:72px;
+    min-height:78px;
 
 }
 
@@ -201,7 +266,91 @@ ul{
    LOGO
 ========================================================== */
 
-.logo-area{
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+.logo img{
+
+    width:54px;
+
+    height:54px;
+
+    object-fit:contain;
+
+}
+
+.logo-text{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.logo-text .brand{
+
+    color:var(--text-light);
+
+    font-size:.85rem;
+
+}
+
+.logo-text h1{
+
+    color:var(--primary);
+
+    font-size:1.45rem;
+
+}
+
+/* ==========================================================
+   NAVIGATION
+========================================================== */
+
+#main-navigation ul{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:30px;
+
+}
+
+#main-navigation a{
+
+    color:var(--text);
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+#main-navigation a:hover{
+
+    color:var(--primary);
+
+}
+
+#main-navigation .active{
+
+    color:var(--primary);
+
+}
+
+/* ==========================================================
+   HEADER ACTIONS
+========================================================== */
+
+.header-actions{
 
     display:flex;
 
@@ -211,53 +360,33 @@ ul{
 
 }
 
-.logo-area img{
+#theme-toggle{
 
-    width:46px;
+    width:45px;
 
-    height:46px;
+    height:45px;
 
-    object-fit:contain;
+    border-radius:50%;
 
-}
-
-.logo-area h1{
-
-    font-size:1.45rem;
-
-    font-weight:700;
-
-    color:var(--primary);
+    background:#eef2ff;
 
 }
 
-/* ==========================================================
-   NAVIGATION
-========================================================== */
+#login-button{
 
-nav ul{
+    padding:12px 22px;
 
-    display:flex;
+    border-radius:10px;
 
-    gap:28px;
+    background:var(--primary);
 
-    align-items:center;
+    color:#fff;
 
 }
 
-nav a{
+#mobile-menu-button{
 
-    color:var(--secondary);
-
-    font-weight:600;
-
-    transition:var(--transition);
-
-}
-
-nav a:hover{
-
-    color:var(--primary);
+    display:none;
 
 }
 
@@ -267,198 +396,253 @@ nav a:hover{
 
 #hero{
 
-    padding:80px 0;
-
-    text-align:center;
+    background:linear-gradient(
+        135deg,
+        #eef4ff,
+        #ffffff
+    );
 
 }
 
-#hero h2{
+#hero .container{
 
-    font-size:3rem;
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:60px;
+
+    align-items:center;
+
+}
+
+.hero-badge{
+
+    display:inline-block;
+
+    background:#dbeafe;
+
+    color:var(--primary);
+
+    padding:10px 18px;
+
+    border-radius:50px;
+
+    font-weight:600;
 
     margin-bottom:20px;
 
-    font-weight:700;
+}
+
+.hero-content h2{
+
+    font-size:3.2rem;
+
+    line-height:1.2;
+
+    margin-bottom:20px;
 
 }
 
-#hero p{
-
-    max-width:760px;
-
-    margin:0 auto 35px;
+.hero-content p{
 
     color:var(--text-light);
+
+    margin-bottom:35px;
 
     font-size:1.1rem;
 
 }
 
+.hero-buttons{
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+.hero-image{
+
+    display:flex;
+
+    justify-content:center;
+
+}
 /* ==========================================================
-   PRIMARY BUTTON
+   HEADER ADVERTISEMENT
 ========================================================== */
 
-.primary-btn{
-
-    display:inline-block;
-
-    background:var(--primary);
-
-    color:#ffffff;
-
-    padding:15px 36px;
-
-    border-radius:var(--radius-md);
-
-    transition:var(--transition);
-
-    font-weight:600;
-
-}
-
-.primary-btn:hover{
-
-    background:var(--primary-hover);
-
-}
-
-/* ==========================================================
-   ADS
-========================================================== */
-
-#header-ad,
-#middle-ad,
-#result-ad{
-
-    background:#eef2f7;
-
-    min-height:100px;
-
-    margin:35px auto;
-
-    border:1px dashed var(--border);
-
-    border-radius:var(--radius-md);
-
-}
-
-#left-sticky-ad,
-#right-sticky-ad{
-
-    position:fixed;
-
-    top:180px;
-
-    width:160px;
-
-    min-height:600px;
-
-    background:#eef2f7;
-
-    border:1px dashed var(--border);
-
-}
-
-#left-sticky-ad{
-
-    left:15px;
-
-}
-
-#right-sticky-ad{
-
-    right:15px;
-
-}
-
-/* ==========================================================
-   SETTINGS PANEL
-========================================================== */
-
-#settings-panel{
-
-    margin:40px auto;
-
-    background:var(--surface);
-
-    border-radius:var(--radius-lg);
-
-    box-shadow:var(--shadow);
-
-    padding:25px;
-
-}
-
-/* ==========================================================
-   TYPING AREA
-========================================================== */
-
-#typing-area{
-
-    margin:35px auto;
-
-}
-
-#passage{
-
-    background:var(--surface);
-
-    border-radius:var(--radius-lg);
-
-    box-shadow:var(--shadow);
-
-    padding:30px;
-
-    min-height:220px;
-
-    font-size:1.45rem;
-
-    line-height:2;
-
-}
-
-#typing-input{
-
-    margin-top:25px;
+.ad-container{
 
     width:100%;
 
-    min-height:180px;
+    min-height:90px;
 
-    resize:vertical;
+    display:flex;
 
-    padding:20px;
+    align-items:center;
 
-    border:2px solid var(--border);
+    justify-content:center;
 
-    border-radius:var(--radius-md);
+    margin:30px 0;
 
-    font-size:1.2rem;
+    border:1px dashed var(--border);
 
-    outline:none;
+    border-radius:var(--radius);
+
+    background:var(--surface);
+
+    box-shadow:var(--shadow-small);
+
+}
+
+/* ==========================================================
+   QUICK PRACTICE
+========================================================== */
+
+.practice-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+.practice-card{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    padding:30px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+    box-shadow:var(--shadow-small);
+
+}
+
+.practice-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:var(--primary);
+
+    box-shadow:var(--shadow-medium);
+
+}
+
+.practice-card h3{
+
+    color:var(--primary);
+
+    font-size:1.5rem;
+
+    margin-bottom:12px;
+
+}
+
+.practice-card p{
+
+    color:var(--text-light);
+
+}
+
+/* ==========================================================
+   TYPING CONTROLS
+========================================================== */
+
+.controls-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:24px;
+
+}
+
+.control-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.control-group label{
+
+    font-weight:600;
+
+    margin-bottom:10px;
+
+}
+
+.control-group select,
+
+.control-group input{
+
+    width:100%;
+
+    padding:14px 16px;
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    background:var(--surface);
 
     transition:var(--transition);
 
 }
 
-#typing-input:focus{
+.control-group select:focus,
+
+.control-group input:focus{
+
+    outline:none;
 
     border-color:var(--primary);
 
 }
 
-/* ==========================================================
-   STATISTICS
-========================================================== */
+.control-buttons{
 
-#statistics{
+    margin-top:35px;
 
-    margin:45px auto;
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
 
 }
 
-#statistics .container{
+/* ==========================================================
+   LIVE STATISTICS
+========================================================== */
+
+#statistics-bar{
+
+    padding-top:30px;
+
+}
+
+#statistics-bar .container{
 
     display:grid;
 
@@ -468,93 +652,128 @@ nav a:hover{
 
 }
 
-#statistics .container div{
+.stat-card{
 
     background:var(--surface);
 
-    padding:22px;
+    border-radius:var(--radius);
 
-    border-radius:var(--radius-md);
-
-    box-shadow:var(--shadow);
+    padding:24px;
 
     text-align:center;
 
-    font-weight:700;
+    border:1px solid var(--border);
 
-}
-
-/* ==========================================================
-   RESULT
-========================================================== */
-
-#result{
-
-    margin:45px auto;
-
-    background:var(--surface);
-
-    min-height:180px;
-
-    border-radius:var(--radius-lg);
-
-    box-shadow:var(--shadow);
-
-}
-
-/* ==========================================================
-   FOOTER
-========================================================== */
-
-footer{
-
-    margin-top:60px;
-
-    background:#0b1220;
-
-    color:#ffffff;
-
-    padding:40px 0;
-
-}
-
-footer .container{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    gap:25px;
-
-}
-
-footer nav{
-
-    display:flex;
-
-    gap:22px;
-
-}
-
-footer nav a{
-
-    color:#ffffff;
+    box-shadow:var(--shadow-small);
 
     transition:var(--transition);
 
 }
 
-footer nav a:hover{
+.stat-card:hover{
 
-    color:#7ab6ff;
+    transform:translateY(-4px);
+
+    box-shadow:var(--shadow-medium);
+
+}
+
+.stat-title{
+
+    display:block;
+
+    margin-bottom:10px;
+
+    color:var(--text-light);
+
+    font-size:.9rem;
+
+}
+
+.stat-card strong{
+
+    font-size:2rem;
+
+    color:var(--primary);
 
 }
 
 /* ==========================================================
-   CHARACTER COLORS
-   (Used by typing.js)
+   TYPING PANEL
+========================================================== */
+
+.typing-wrapper{
+
+    background:var(--surface);
+
+    border-radius:18px;
+
+    border:1px solid var(--border);
+
+    padding:35px;
+
+    box-shadow:var(--shadow-medium);
+
+}
+
+#typing-passage{
+
+    min-height:220px;
+
+    padding:25px;
+
+    border-radius:14px;
+
+    background:#f8fafc;
+
+    border:1px solid var(--border);
+
+    font-size:1.55rem;
+
+    line-height:2;
+
+    user-select:none;
+
+    word-break:break-word;
+
+}
+
+#typing-input{
+
+    width:100%;
+
+    margin-top:25px;
+
+    min-height:180px;
+
+    resize:vertical;
+
+    padding:22px;
+
+    border:2px solid var(--border);
+
+    border-radius:14px;
+
+    font-size:1.25rem;
+
+    line-height:1.8;
+
+    transition:var(--transition);
+
+}
+
+#typing-input:focus{
+
+    outline:none;
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 4px rgba(37,99,235,.12);
+
+}
+
+/* ==========================================================
+   CHARACTER STATES
 ========================================================== */
 
 .correct{
@@ -567,23 +786,474 @@ footer nav a:hover{
 
     color:var(--danger);
 
+    background:rgba(220,38,38,.08);
+
 }
 
 .current{
 
-    background:#fff4a3;
+    background:#fff3b0;
 
     border-radius:4px;
 
 }
 
 /* ==========================================================
-   HIDDEN
+   RESULT SECTION
 ========================================================== */
+
+.result-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+.result-card{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    padding:28px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow-small);
+
+}
+
+.result-card h3{
+
+    color:var(--text-light);
+
+    margin-bottom:12px;
+
+    font-size:1rem;
+
+}
+
+.result-card p{
+
+    font-size:2rem;
+
+    color:var(--primary);
+
+    font-weight:700;
+
+}
+
+.result-actions{
+
+    margin-top:40px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+
+}
+
+/* ==========================================================
+   DAILY CHALLENGE
+========================================================== */
+
+.challenge-card{
+
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #1d4ed8
+    );
+
+    color:#ffffff;
+
+    border-radius:20px;
+
+    padding:45px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow-medium);
+
+}
+
+.challenge-card h3{
+
+    font-size:2rem;
+
+    margin-bottom:20px;
+
+}
+
+.challenge-card p{
+
+    max-width:700px;
+
+    margin:auto auto 30px;
+
+    font-size:1.05rem;
+
+    opacity:.95;
+
+}
+
+.challenge-card .btn-primary{
+
+    background:#ffffff;
+
+    color:var(--primary);
+
+}
+/* ==========================================================
+   FEATURES
+========================================================== */
+
+.feature-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+.feature-card{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    padding:30px;
+
+    text-align:center;
+
+    transition:var(--transition);
+
+    box-shadow:var(--shadow-small);
+
+}
+
+.feature-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:var(--shadow-medium);
+
+    border-color:var(--primary);
+
+}
+
+.feature-card h3{
+
+    margin-bottom:14px;
+
+    color:var(--primary);
+
+    font-size:1.35rem;
+
+}
+
+.feature-card p{
+
+    color:var(--text-light);
+
+}
+
+/* ==========================================================
+   FAQ
+========================================================== */
+
+.faq-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.faq-item{
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    padding:25px;
+
+    box-shadow:var(--shadow-small);
+
+}
+
+.faq-item h3{
+
+    margin-bottom:12px;
+
+    color:var(--primary);
+
+    font-size:1.2rem;
+
+}
+
+.faq-item p{
+
+    color:var(--text-light);
+
+}
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+#site-footer{
+
+    background:#0f172a;
+
+    color:#ffffff;
+
+    padding-top:60px;
+
+    margin-top:70px;
+
+}
+
+#site-footer .container{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr 1fr;
+
+    gap:40px;
+
+    align-items:flex-start;
+
+}
+
+.footer-brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.footer-brand img{
+
+    width:70px;
+
+    height:70px;
+
+}
+
+.footer-brand h2{
+
+    margin-bottom:8px;
+
+}
+
+.footer-brand p{
+
+    color:#cbd5e1;
+
+}
+
+.footer-links h3,
+
+.footer-contact h3{
+
+    margin-bottom:18px;
+
+    font-size:1.2rem;
+
+}
+
+.footer-links ul{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+.footer-links a{
+
+    color:#cbd5e1;
+
+    transition:var(--transition);
+
+}
+
+.footer-links a:hover{
+
+    color:#ffffff;
+
+    padding-left:6px;
+
+}
+
+.footer-contact p{
+
+    margin-bottom:12px;
+
+    color:#cbd5e1;
+
+}
+
+.footer-bottom{
+
+    margin-top:45px;
+
+    padding:20px;
+
+    text-align:center;
+
+    border-top:1px solid rgba(255,255,255,.12);
+
+}
+
+/* ==========================================================
+   STICKY ADS
+========================================================== */
+
+.desktop-ad{
+
+    position:fixed;
+
+    top:170px;
+
+    width:160px;
+
+    min-height:600px;
+
+    background:var(--surface);
+
+    border:1px dashed var(--border);
+
+    border-radius:12px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:var(--text-light);
+
+    font-size:.9rem;
+
+    z-index:100;
+
+}
+
+#left-sticky-ad{
+
+    left:10px;
+
+}
+
+#right-sticky-ad{
+
+    right:10px;
+
+}
+
+#mobile-bottom-ad{
+
+    display:none;
+
+}
+
+/* ==========================================================
+   FORM ELEMENTS
+========================================================== */
+
+textarea::placeholder,
+
+input::placeholder{
+
+    color:#94a3b8;
+
+}
+
+select{
+
+    cursor:pointer;
+
+}
+
+input[type="range"]{
+
+    cursor:pointer;
+
+}
+
+/* ==========================================================
+   UTILITIES
+========================================================== */
+
+.text-center{
+
+    text-align:center;
+
+}
 
 .hidden{
 
     display:none !important;
+
+}
+
+.visible{
+
+    display:block !important;
+
+}
+
+.w-100{
+
+    width:100%;
+
+}
+
+.mt-20{
+
+    margin-top:20px;
+
+}
+
+.mt-40{
+
+    margin-top:40px;
+
+}
+
+.mb-20{
+
+    margin-bottom:20px;
+
+}
+
+.mb-40{
+
+    margin-bottom:40px;
 
 }
 
@@ -611,21 +1281,52 @@ footer nav a:hover{
 
 ::-webkit-scrollbar-track{
 
-    background:#edf0f5;
+    background:#edf2f7;
 
 }
 
 ::-webkit-scrollbar-thumb{
 
-    background:#b8c0cc;
+    background:#94a3b8;
 
-    border-radius:20px;
+    border-radius:50px;
 
 }
 
 ::-webkit-scrollbar-thumb:hover{
 
-    background:#9aa5b4;
+    background:#64748b;
+
+}
+
+/* ==========================================================
+   TRANSITIONS
+========================================================== */
+
+button,
+a,
+input,
+textarea,
+select,
+.practice-card,
+.feature-card,
+.result-card,
+.stat-card,
+.faq-item{
+
+    transition:var(--transition);
+
+}
+
+/* ==========================================================
+   ACCESSIBILITY
+========================================================== */
+
+:focus-visible{
+
+    outline:3px solid rgba(37,99,235,.35);
+
+    outline-offset:3px;
 
 }
 
