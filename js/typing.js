@@ -166,6 +166,7 @@ class TypingEngine {
             TypingState.started = true;
 
             TypingState.startTime = Date.now();
+           this.startTimer();
 
         }
 
@@ -710,12 +711,11 @@ TypingEngine.prototype.checkCompletion = function () {
         this.input.disabled = true;
 
     }
+   this.stopTimer();
 
-    console.log(
+    this.saveBestScore();
 
-        "Typing Test Completed"
-
-    );
+this.showResult();
 
 };
 
@@ -766,6 +766,8 @@ TypingEngine.prototype.autoScroll = function (
 ========================================================== */
 
 TypingEngine.prototype.restart = async function () {
+   this.resetResult();
+   this.resetTimer();
 
     await this.loadNextPassage();
 
@@ -1506,5 +1508,435 @@ TypingEngine.prototype.enableSecurity = function () {
     this.bindSecurityEvents();
 
     this.bindKeyboardProtection();
+
+};
+/* ==========================================================
+   RESULT OBJECT
+========================================================== */
+
+TypingEngine.prototype.generateResult = function () {
+
+    const result = {
+
+        date:
+
+            new Date().toISOString(),
+
+        mode:
+
+            TypingState.mode,
+
+        language:
+
+            TypingState.language,
+
+        duration:
+
+            this.getElapsedSeconds(),
+
+        totalCharacters:
+
+            TypingState.characters.length,
+
+        typedCharacters:
+
+            TypingState.typedText.length,
+
+        correctCharacters:
+
+            TypingState.correctCharacters,
+
+        incorrectCharacters:
+
+            TypingState.incorrectCharacters,
+
+        extraCharacters:
+
+            TypingState.extraCharacters,
+
+        accuracy:
+
+            Number(
+
+                this.getAccuracy()
+
+            ),
+
+        grossWPM:
+
+            this.getGrossWPM(),
+
+        netWPM:
+
+            this.getNetWPM(),
+
+        cpm:
+
+            this.getCPM(),
+
+        words:
+
+            this.getTypedWords()
+
+    };
+
+    return result;
+
+};
+
+
+/* ==========================================================
+   DISPLAY RESULT
+========================================================== */
+
+TypingEngine.prototype.showResult = function () {
+
+    const result =
+
+        this.generateResult();
+
+    console.table(
+
+        result
+
+    );
+
+    const resultBox =
+
+        document.getElementById(
+
+            "result-panel"
+
+        );
+
+    if (!resultBox) {
+
+        return;
+
+    }
+
+    resultBox.classList.remove(
+
+        "hidden"
+
+    );
+
+    resultBox.querySelector(
+
+        "#result-wpm"
+
+    ).textContent =
+
+        result.netWPM;
+
+    resultBox.querySelector(
+
+        "#result-accuracy"
+
+    ).textContent =
+
+        result.accuracy + "%";
+
+    resultBox.querySelector(
+
+        "#result-errors"
+
+    ).textContent =
+
+        result.incorrectCharacters;
+
+    resultBox.querySelector(
+
+        "#result-time"
+
+    ).textContent =
+
+        result.duration + " sec";
+
+};
+
+
+/* ==========================================================
+   SAVE BEST SCORE
+========================================================== */
+
+TypingEngine.prototype.saveBestScore = function () {
+
+    const best = Number(
+
+        localStorage.getItem(
+
+            "bestWPM"
+
+        ) || 0
+
+    );
+
+    const current =
+
+        this.getNetWPM();
+
+    if (current > best) {
+
+        localStorage.setItem(
+
+            "bestWPM",
+
+            current
+
+        );
+
+    }
+
+};
+
+
+/* ==========================================================
+   GET BEST SCORE
+========================================================== */
+
+TypingEngine.prototype.getBestScore = function () {
+
+    return Number(
+
+        localStorage.getItem(
+
+            "bestWPM"
+
+        ) || 0
+
+    );
+
+};
+
+
+/* ==========================================================
+   RESET RESULT PANEL
+========================================================== */
+
+TypingEngine.prototype.resetResult = function () {
+
+    const panel =
+
+        document.getElementById(
+
+            "result-panel"
+
+        );
+
+    if (!panel) {
+
+        return;
+
+    }
+
+    panel.classList.add(
+
+        "hidden"
+
+    );
+
+};
+/* ==========================================================
+   TIMER CONTROLLER
+========================================================== */
+
+TypingEngine.prototype.timer = null;
+
+
+/* ==========================================================
+   START TIMER
+========================================================== */
+
+TypingEngine.prototype.startTimer = function () {
+
+    if (this.timer !== null) {
+
+        return;
+
+    }
+
+    let remaining =
+
+        TypingState.duration;
+
+    this.updateTimerDisplay(
+
+        remaining
+
+    );
+
+    this.timer = setInterval(
+
+        () => {
+
+            remaining--;
+
+            this.updateTimerDisplay(
+
+                remaining
+
+            );
+
+            if (remaining <= 0) {
+
+                this.stopTimer();
+
+                this.finishByTimeout();
+
+            }
+
+        },
+
+        1000
+
+    );
+
+};
+
+
+/* ==========================================================
+   STOP TIMER
+========================================================== */
+
+TypingEngine.prototype.stopTimer = function () {
+
+    if (this.timer === null) {
+
+        return;
+
+    }
+
+    clearInterval(
+
+        this.timer
+
+    );
+
+    this.timer = null;
+
+};
+
+
+/* ==========================================================
+   UPDATE TIMER DISPLAY
+========================================================== */
+
+TypingEngine.prototype.updateTimerDisplay = function (
+
+    seconds
+
+) {
+
+    const timerElement =
+
+        document.getElementById(
+
+            "timer"
+
+        );
+
+    if (!timerElement) {
+
+        return;
+
+    }
+
+    const minutes =
+
+        Math.floor(
+
+            seconds / 60
+
+        );
+
+    const remainingSeconds =
+
+        seconds % 60;
+
+    timerElement.textContent =
+
+        String(minutes)
+
+            .padStart(2, "0")
+
+        +
+
+        ":"
+
+        +
+
+        String(
+
+            remainingSeconds
+
+        ).padStart(2, "0");
+
+};
+
+
+/* ==========================================================
+   FINISH BY TIMEOUT
+========================================================== */
+
+TypingEngine.prototype.finishByTimeout = function () {
+
+    if (TypingState.finished) {
+
+        return;
+
+    }
+
+    TypingState.finished = true;
+
+    TypingState.endTime =
+
+        Date.now();
+
+    if (this.input) {
+
+        this.input.disabled = true;
+
+    }
+
+    this.saveBestScore();
+
+    this.showResult();
+
+};
+
+
+/* ==========================================================
+   RESET TIMER
+========================================================== */
+
+TypingEngine.prototype.resetTimer = function () {
+
+    this.stopTimer();
+
+    this.updateTimerDisplay(
+
+        TypingState.duration
+
+    );
+
+};
+
+
+/* ==========================================================
+   CHANGE TIMER
+========================================================== */
+
+TypingEngine.prototype.setDuration = function (
+
+    seconds
+
+) {
+
+    TypingState.duration =
+
+        Number(seconds);
+
+    this.resetTimer();
 
 };
