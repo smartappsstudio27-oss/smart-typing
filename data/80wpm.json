@@ -1,0 +1,59 @@
+{
+  "version": "1.0",
+  "language": "english",
+  "category": "80wpm",
+  "difficulty": "expert",
+  "recommendedWPM": 80,
+  "passages": [
+    {
+      "id": 1,
+      "title": "Professional Performance",
+      "text": "Professional typing at eighty words per minute requires exceptional accuracy, endurance, and concentration. Skilled typists maintain a smooth rhythm without sacrificing precision, allowing them to complete demanding tasks efficiently even under strict deadlines."
+    },
+    {
+      "id": 2,
+      "title": "Advanced Technology",
+      "text": "Modern organizations rely on digital collaboration platforms, cloud computing, and real-time communication. Professionals who type quickly and accurately can contribute more effectively by documenting ideas, preparing reports, and responding to critical information without unnecessary delay."
+    },
+    {
+      "id": 3,
+      "title": "Software Development Workflow",
+      "text": "Software developers continuously alternate between writing source code, reviewing documentation, debugging applications, and communicating with team members. Fast typing improves productivity by reducing interruptions and allowing greater focus on solving technical challenges."
+    },
+    {
+      "id": 4,
+      "title": "Analytical Thinking",
+      "text": "Exceptional typing skills support analytical work because they reduce the cognitive effort required to enter text. As keyboard movements become automatic through muscle memory, professionals can dedicate more attention to reasoning, planning, and decision making."
+    },
+    {
+      "id": 5,
+      "title": "Business Communication",
+      "text": "Clear and accurate communication is essential in every professional environment. Well-structured documents, correctly typed reports, and error-free correspondence strengthen credibility while improving collaboration between teams, clients, and stakeholders."
+    },
+    {
+      "id": 6,
+      "title": "Competitive Excellence",
+      "text": "High-speed typing competitions reward consistent performance rather than occasional bursts of speed. Successful participants maintain composure, recover quickly from mistakes, and preserve accuracy throughout the entire examination or competition."
+    },
+    {
+      "id": 7,
+      "title": "Continuous Skill Development",
+      "text": "Mastering keyboard skills is an ongoing process that combines deliberate practice, performance analysis, and gradual improvement. Reviewing statistics such as net words per minute, gross speed, and error patterns provides valuable guidance for future practice sessions."
+    },
+    {
+      "id": 8,
+      "title": "Digital Productivity",
+      "text": "As organizations increasingly adopt digital workflows, typing proficiency becomes an essential productivity skill. Efficient keyboard usage enables professionals to complete documentation, data entry, programming, and communication tasks with greater confidence and efficiency."
+    },
+    {
+      "id": 9,
+      "title": "Professional Growth",
+      "text": "Developing advanced typing ability benefits careers in software engineering, accounting, administration, journalism, customer support, education, and many other professions. Consistent improvement creates long-term advantages in both speed and overall work quality."
+    },
+    {
+      "id": 10,
+      "title": "Smart Typing Platform",
+      "text": "Smart Typing is designed as a complete professional typing platform featuring structured lessons, multilingual practice, customizable exercises, detailed performance analytics, progress tracking, online leaderboards, certification support, and future artificial intelligence powered content generation."
+    }
+  ]
+}
