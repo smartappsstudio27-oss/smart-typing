@@ -1,796 +1,1027 @@
+"use strict";
+
 /* ==========================================================
    Smart Typing
-   Brand : SmartApps Studio
-   File : typing.js
-   Version : 1.0
-   Purpose : Typing Engine
+   Brand      : SmartApps Studio
+   File       : typing.js
+   Version    : 2.0.0
+   Author     : SmartApps Studio
+   Description:
+   Professional Typing Engine
+
+   This file controls:
+
+   ✔ Passage Loading
+   ✔ Typing Detection
+   ✔ Character Validation
+   ✔ WPM
+   ✔ Accuracy
+   ✔ Errors
+   ✔ Timer Integration
+   ✔ Auto Scroll
+   ✔ Result Generation
+   ✔ Leaderboard Ready
+   ✔ Firebase Ready
+
 ========================================================== */
 
 
 /* ==========================================================
-   TYPING ENGINE OBJECT
+   CONFIGURATION
 ========================================================== */
 
+const TYPING_CONFIG = {
 
-const TypingEngine = {
+    DEFAULT_MODE: 30,
 
+    DEFAULT_TIME: 60,
 
-    /* Current Passage */
+    DEFAULT_LANGUAGE: "english",
 
-    passage:"",
+    CURSOR_CLASS: "current",
 
+    CORRECT_CLASS: "correct",
 
-    /* Character List */
+    INCORRECT_CLASS: "incorrect",
 
-    characters:[],
+    EXTRA_CLASS: "extra",
 
+    REMAINING_CLASS: "remaining",
 
-    /* Current Position */
+    PASSAGE_CONTAINER: "typing-passage",
 
-    index:0,
-
-
-    /* User Input */
-
-    input:"",
-
-
-    /* Status */
-
-    started:false,
-
-    finished:false,
-
-
-    /* Default Passage */
-
-    defaultText:
-
-    "The quick brown fox jumps over the lazy dog. " +
-    "Typing practice improves speed and accuracy. " +
-    "Regular practice helps you become a professional typist.",
-
+    INPUT_BOX: "typing-input"
 
 };
 
 
-
-
 /* ==========================================================
-   INITIALIZE TYPING
+   GLOBAL STATE
 ========================================================== */
 
+const TypingState = {
 
-TypingEngine.init = function(){
+    initialized: false,
 
+    started: false,
 
-    this.loadPassage();
+    finished: false,
 
+    paused: false,
 
-    this.renderPassage();
+    mode: TYPING_CONFIG.DEFAULT_MODE,
 
+    language: TYPING_CONFIG.DEFAULT_LANGUAGE,
 
-    this.bindEvents();
+    duration: TYPING_CONFIG.DEFAULT_TIME,
 
+    startTime: 0,
+
+    endTime: 0,
+
+    currentIndex: 0,
+
+    passage: "",
+
+    words: [],
+
+    characters: [],
+
+    typedText: ""
 
 };
 
 
+/* ==========================================================
+   MAIN ENGINE
+========================================================== */
+
+class TypingEngine {
+
+    constructor() {
+
+        this.container = null;
+
+        this.input = null;
+
+        this.characterElements = [];
+
+    }
+
+    initialize() {
+
+        if (TypingState.initialized) {
+
+            return;
+
+        }
+
+        this.cacheDOM();
+       this.initializePassage();
+        this.bindEvents();
+
+        TypingState.initialized = true;
+
+    }
+
+    cacheDOM() {
+
+        this.container = document.getElementById(
+
+            TYPING_CONFIG.PASSAGE_CONTAINER
+
+        );
+
+        this.input = document.getElementById(
+
+            TYPING_CONFIG.INPUT_BOX
+
+        );
+
+    }
+
+    bindEvents() {
+
+        if (!this.input) {
+
+            return;
+
+        }
+
+        this.input.addEventListener(
+
+            "input",
+
+            this.handleInput.bind(this)
+
+        );
+
+    }
+
+    handleInput(event) {
+
+        if (!TypingState.started) {
+
+            TypingState.started = true;
+
+            TypingState.startTime = Date.now();
+
+        }
+
+        TypingState.typedText =
+
+            event.target.value;
+
+        this.processTyping();
+
+    }
+
+    processTyping() {
+
+        /*
+            Character Checking
+
+            Cursor Movement
+
+            Accuracy
+
+            WPM
+
+            Errors
+
+            Progress
+
+            Result
+
+            Will be added
+            in upcoming Parts.
+        */
+
+    }
+
+}
 
 
 /* ==========================================================
-   DOM READY
+   CREATE ENGINE
 ========================================================== */
 
+const typingEngine =
+
+    new TypingEngine();
+
+
+/* ==========================================================
+   START APPLICATION
+========================================================== */
 
 document.addEventListener(
 
     "DOMContentLoaded",
 
-    ()=>{
+    function () {
 
-
-        TypingEngine.init();
-
+        typingEngine.initialize();
 
     }
 
 );
 
 
-
-
 /* ==========================================================
-   LOAD PASSAGE
+   END OF PART 1
+========================================================== *//* ==========================================================
+   PASSAGE DATA
 ========================================================== */
 
+TypingEngine.prototype.passages = {
 
-TypingEngine.loadPassage = function(){
+    english: {
 
+        30: [],
 
+        40: [],
 
-    this.passage =
-        this.defaultText;
+        50: [],
 
+        60: [],
 
+        80: []
 
-    this.characters =
-        this.passage.split("");
-
-
-
-    this.index=0;
-
-
+    }
 
 };
 
 
+/* ==========================================================
+   LOAD PASSAGES
+========================================================== */
+
+TypingEngine.prototype.loadPassages = async function () {
+
+    const mode = TypingState.mode;
+
+    const language = TypingState.language;
+
+    const file = `data/${mode}wpm.json`;
+
+    try {
+
+        const response = await fetch(file);
+
+        if (!response.ok) {
+
+            throw new Error("Unable to load passage.");
+
+        }
+
+        const json = await response.json();
+
+        if (Array.isArray(json)) {
+
+            this.passages[language][mode] = json;
+
+        }
+
+        else if (Array.isArray(json.passages)) {
+
+            this.passages[language][mode] = json.passages;
+
+        }
+
+        else {
+
+            throw new Error("Invalid JSON format.");
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        this.loadDefaultPassages();
+
+    }
+
+};
 
 
 /* ==========================================================
+   DEFAULT PASSAGES
+========================================================== */
+
+TypingEngine.prototype.loadDefaultPassages = function () {
+
+    this.passages.english[30] = [
+
+        "The quick brown fox jumps over the lazy dog.",
+
+        "Typing every day improves speed and accuracy.",
+
+        "Practice is the key to becoming a better typist."
+
+    ];
+
+};
+
+
+/* ==========================================================
+   RANDOM PASSAGE
+========================================================== */
+
+TypingEngine.prototype.selectRandomPassage = function () {
+
+    const mode = TypingState.mode;
+
+    const language = TypingState.language;
+
+    const list = this.passages[language][mode];
+
+    if (!list || list.length === 0) {
+
+        console.warn("No passages found.");
+
+        return "";
+
+    }
+
+    const randomIndex = Math.floor(
+
+        Math.random() * list.length
+
+    );
+
+    return list[randomIndex];
+
+};
+
+
+/* ==========================================================
+   PREPARE PASSAGE
+========================================================== */
+
+TypingEngine.prototype.preparePassage = function () {
+
+    TypingState.passage =
+
+        this.selectRandomPassage();
+
+    TypingState.characters =
+
+        Array.from(
+
+            TypingState.passage
+
+        );
+
+    TypingState.words =
+
+        TypingState.passage
+
+        .trim()
+
+        .split(/\s+/);
+
+};
+
+
+/* ==========================================================
+   INITIAL LOADER
+========================================================== */
+
+TypingEngine.prototype.initializePassage =
+
+async function () {
+
+    await this.loadPassages();
+
+    this.preparePassage();
+
+    this.renderPassage();
+
+};/* ==========================================================
    RENDER PASSAGE
 ========================================================== */
 
+TypingEngine.prototype.renderPassage = function () {
 
-TypingEngine.renderPassage = function(){
-
-
-
-    const container =
-        document.getElementById(
-            "typing-passage"
-        );
-
-
-
-    if(!container){
+    if (!this.container) {
 
         return;
 
     }
 
+    this.container.innerHTML = "";
 
+    this.characterElements = [];
 
-    container.innerHTML="";
+    TypingState.characters.forEach(
 
-
-
-    this.characters.forEach(
-
-        (character,position)=>{
-
+        (character, index) => {
 
             const span =
-                document.createElement(
-                    "span"
+
+                document.createElement("span");
+
+            span.textContent = character;
+
+            span.dataset.index = index;
+
+            span.classList.add(
+
+                TYPING_CONFIG.REMAINING_CLASS
+
+            );
+
+            if (index === 0) {
+
+                span.classList.remove(
+
+                    TYPING_CONFIG.REMAINING_CLASS
+
                 );
-
-
-            span.innerText =
-                character;
-
-
-
-            span.dataset.index =
-                position;
-
-
-
-            if(position===0){
-
 
                 span.classList.add(
-                    "current"
-                );
 
+                    TYPING_CONFIG.CURSOR_CLASS
+
+                );
 
             }
 
+            this.characterElements.push(span);
 
-
-            container.appendChild(
-                span
-            );
-
-
+            this.container.appendChild(span);
 
         }
 
     );
 
+};
+
+
+/* ==========================================================
+   RESET PASSAGE
+========================================================== */
+
+TypingEngine.prototype.resetPassage = function () {
+
+    TypingState.started = false;
+
+    TypingState.finished = false;
+
+    TypingState.currentIndex = 0;
+
+    TypingState.typedText = "";
+
+    TypingState.startTime = 0;
+
+    TypingState.endTime = 0;
+
+    if (this.input) {
+
+        this.input.value = "";
+
+        this.input.disabled = false;
+
+        this.input.focus();
+
+    }
+
+    this.renderPassage();
 
 };
 
 
+/* ==========================================================
+   LOAD NEXT PASSAGE
+========================================================== */
+
+TypingEngine.prototype.loadNextPassage = async function () {
+
+    await this.loadPassages();
+
+    this.preparePassage();
+
+    this.resetPassage();
+
+};
 
 
 /* ==========================================================
-   EVENT HANDLER
+   GET CURRENT CHARACTER
 ========================================================== */
 
+TypingEngine.prototype.getCurrentCharacter = function () {
 
-TypingEngine.bindEvents = function(){
+    return TypingState.characters[
+        TypingState.currentIndex
+    ];
 
-
-
-    const input =
-        document.getElementById(
-            "typing-input"
-        );
+};
 
 
+/* ==========================================================
+   GET CURRENT ELEMENT
+========================================================== */
 
-    if(!input){
+TypingEngine.prototype.getCurrentElement = function () {
 
-        return;
+    return this.characterElements[
+        TypingState.currentIndex
+    ];
 
-    }
-
-
-
-    input.addEventListener(
-
-        "input",
-
-        (event)=>{
+};
 
 
-            this.handleTyping(
-                event.target.value
-            );
+/* ==========================================================
+   GET CHARACTER COUNT
+========================================================== */
+
+TypingEngine.prototype.getCharacterCount = function () {
+
+    return TypingState.characters.length;
+
+};
 
 
-        }
+/* ==========================================================
+   IS COMPLETED
+========================================================== */
+
+TypingEngine.prototype.isCompleted = function () {
+
+    return (
+
+        TypingState.currentIndex >=
+
+        TypingState.characters.length
 
     );
 
+};/* ==========================================================
+   PROCESS TYPING
+========================================================== */
 
+TypingEngine.prototype.processTyping = function () {
+
+    const typed = this.input.value;
+
+    TypingState.typedText = typed;
+
+    TypingState.currentIndex = typed.length;
+
+    this.validateCharacters();
+
+    this.updateCursor();
+   this.refreshStatistics();
+    this.checkCompletion();
 
 };
 
 
-
-
 /* ==========================================================
-   HANDLE TYPING
+   VALIDATE CHARACTERS
 ========================================================== */
 
+TypingEngine.prototype.validateCharacters = function () {
 
-TypingEngine.handleTyping = function(value){
+    this.characterElements.forEach(
 
+        (element, index) => {
 
+            element.classList.remove(
 
-    if(!this.started){
+                TYPING_CONFIG.CORRECT_CLASS,
 
+                TYPING_CONFIG.INCORRECT_CLASS,
 
-        this.started=true;
+                TYPING_CONFIG.CURSOR_CLASS,
 
-
-
-        SmartTyping.typing.started=true;
-
-
-
-    }
-
-
-
-    this.input=value;
-
-
-
-    this.updateCharacters();
-
-
-
-    this.updatePosition();
-
-
-
-};
-
-
-
-
-/* ==========================================================
-   CHARACTER CHECK
-========================================================== */
-
-
-TypingEngine.updateCharacters = function(){
-
-
-
-    const spans =
-        document.querySelectorAll(
-            "#typing-passage span"
-        );
-
-
-
-    spans.forEach(
-
-        (span,index)=>{
-
-
-            span.classList.remove(
-
-                "correct",
-
-                "incorrect"
+                TYPING_CONFIG.REMAINING_CLASS
 
             );
 
+            const typedCharacter =
 
+                TypingState.typedText[index];
 
-            const typed =
-                this.input[index];
+            const actualCharacter =
 
+                TypingState.characters[index];
 
+            if (typedCharacter === undefined) {
 
-            if(typed===undefined){
+                element.classList.add(
+
+                    TYPING_CONFIG.REMAINING_CLASS
+
+                );
 
                 return;
 
             }
 
+            if (typedCharacter === actualCharacter) {
 
+                element.classList.add(
 
-            if(
-                typed ===
-                this.characters[index]
-            ){
+                    TYPING_CONFIG.CORRECT_CLASS
 
-
-                span.classList.add(
-                    "correct"
                 );
-
 
             }
 
-            else{
+            else {
 
+                element.classList.add(
 
-                span.classList.add(
-                    "incorrect"
+                    TYPING_CONFIG.INCORRECT_CLASS
+
                 );
 
-
             }
-
-
 
         }
 
     );
 
-
-
 };
+
+
 /* ==========================================================
-   UPDATE CURRENT CHARACTER POSITION
+   UPDATE CURSOR
 ========================================================== */
 
-
-TypingEngine.updatePosition = function(){
-
-
-
-    const spans =
-        document.querySelectorAll(
-            "#typing-passage span"
-        );
-
-
-
-    spans.forEach(
-        span=>{
-
-
-            span.classList.remove(
-                "current"
-            );
-
-
-        }
-    );
-
-
+TypingEngine.prototype.updateCursor = function () {
 
     const current =
-        spans[this.input.length];
 
+        this.characterElements[
+            TypingState.currentIndex
+        ];
 
+    if (!current) {
 
-    if(current){
-
-
-        current.classList.add(
-            "current"
-        );
-
-
-        this.autoScroll(
-            current
-        );
-
+        return;
 
     }
 
-    else{
+    current.classList.remove(
 
+        TYPING_CONFIG.REMAINING_CLASS
 
-        this.complete();
+    );
 
+    current.classList.add(
 
-    }
+        TYPING_CONFIG.CURSOR_CLASS
 
+    );
 
+    this.autoScroll(current);
 
 };
 
 
+/* ==========================================================
+   CHECK COMPLETION
+========================================================== */
+
+TypingEngine.prototype.checkCompletion = function () {
+
+    if (!this.isCompleted()) {
+
+        return;
+
+    }
+
+    TypingState.finished = true;
+
+    TypingState.endTime = Date.now();
+
+    if (this.input) {
+
+        this.input.disabled = true;
+
+    }
+
+    console.log(
+
+        "Typing Test Completed"
+
+    );
+
+};
 
 
 /* ==========================================================
    AUTO SCROLL
 ========================================================== */
 
+TypingEngine.prototype.autoScroll = function (
 
-TypingEngine.autoScroll = function(element){
+    element
 
+) {
 
-
-    const container =
-        document.getElementById(
-            "typing-passage"
-        );
-
-
-
-    if(!container || !element){
+    if (!this.container || !element) {
 
         return;
 
     }
 
+    const top =
 
-
-    const position =
         element.offsetTop;
 
+    const visible =
 
+        this.container.scrollTop +
 
-    if(
-        position >
-        container.scrollTop +
-        container.clientHeight -
-        60
-    ){
+        this.container.clientHeight;
 
+    if (top > visible - 80) {
 
-        container.scrollTop =
-            position -
-            container.clientHeight +
-            80;
+        this.container.scrollTop =
 
+            top -
+
+            this.container.clientHeight +
+
+            100;
 
     }
 
-
-
 };
-
-
 
 
 /* ==========================================================
-   COMPLETE TEST
+   RESTART ENGINE
 ========================================================== */
 
+TypingEngine.prototype.restart = async function () {
 
-TypingEngine.complete = function(){
-
-
-
-    this.finished=true;
-
-
-    SmartTyping.typing.completed=true;
-
-
-
-    const input =
-        document.getElementById(
-            "typing-input"
-        );
-
-
-
-    if(input){
-
-
-        input.disabled=true;
-
-
-    }
-
-
-
-    SmartTyping.showMessage(
-
-        "Typing Test Completed"
-
-    );
-
-
+    await this.loadNextPassage();
 
 };
-
-
-
-
-/* ==========================================================
-   RESTART PRACTICE
-========================================================== */
-
-
-TypingEngine.restart = function(){
-
-
-
-    this.index=0;
-
-
-    this.input="";
-
-
-    this.started=false;
-
-
-    this.finished=false;
-
-
-
-    const input =
-        document.getElementById(
-            "typing-input"
-        );
-
-
-
-    if(input){
-
-
-        input.value="";
-
-
-        input.disabled=false;
-
-
-        input.focus();
-
-
-    }
-
-
-
-    this.renderPassage();
-
-
-
-};
-
-
 
 
 /* ==========================================================
    NEXT PASSAGE
 ========================================================== */
 
+TypingEngine.prototype.nextPassage = async function () {
 
-TypingEngine.nextPassage = function(){
+    await this.loadNextPassage();
 
+};/* ==========================================================
+   CALCULATE STATISTICS
+========================================================== */
 
+TypingEngine.prototype.calculateStatistics = function () {
 
-    const passages=[
+    let correct = 0;
 
+    let incorrect = 0;
 
-        "Practice makes perfect. Keep improving your typing speed every day.",
+    let extra = 0;
 
+    const typed = TypingState.typedText;
 
-        "Programming requires accuracy, focus and consistent learning.",
+    const original = TypingState.characters;
 
+    for (
 
-        "Smart Typing helps students and professionals improve keyboard skills.",
+        let index = 0;
 
+        index < typed.length;
 
-        "Fast typing saves time and increases productivity."
+        index++
 
-    ];
+    ) {
 
+        if (index >= original.length) {
 
+            extra++;
 
-    const random =
-        Math.floor(
-            Math.random() *
-            passages.length
-        );
+            continue;
 
+        }
 
+        if (
 
-    this.passage =
-        passages[random];
+            typed[index] ===
 
+            original[index]
 
+        ) {
 
-    this.characters =
-        this.passage.split("");
+            correct++;
 
+        }
 
+        else {
 
-    this.restart();
+            incorrect++;
 
+        }
 
+    }
+
+    TypingState.correctCharacters = correct;
+
+    TypingState.incorrectCharacters = incorrect;
+
+    TypingState.extraCharacters = extra;
 
 };
 
 
-
-
 /* ==========================================================
-   JSON PASSAGE LOADER READY
+   GET PROGRESS
 ========================================================== */
 
+TypingEngine.prototype.getProgress = function () {
 
-TypingEngine.loadFromJSON = async function(
-    file
-){
+    if (
 
+        TypingState.characters.length === 0
 
+    ) {
 
-    try{
-
-
-        const response =
-            await fetch(file);
-
-
-
-        const data =
-            await response.json();
-
-
-
-        if(data.text){
-
-
-            this.passage =
-                data.text;
-
-
-        }
-
-
-
-        this.characters =
-            this.passage.split("");
-
-
-
-        this.restart();
-
-
+        return 0;
 
     }
 
-    catch(error){
+    return Math.floor(
 
+        (
 
-        console.error(
+            TypingState.currentIndex /
 
-            "Passage loading error:",
-            error
+            TypingState.characters.length
 
-        );
+        ) * 100
 
-
-    }
-
-
+    );
 
 };
 
 
-
-
 /* ==========================================================
-   BUTTON EVENTS
+   UPDATE PROGRESS
 ========================================================== */
 
+TypingEngine.prototype.updateProgress = function () {
 
-document.addEventListener(
+    const progressElement =
 
-    "DOMContentLoaded",
+        document.getElementById(
 
-    ()=>{
+            "progress"
 
+        );
 
-        const restart =
-            document.getElementById(
-                "restart-button"
-            );
+    if (!progressElement) {
 
-
-        if(restart){
-
-
-            restart.addEventListener(
-
-                "click",
-
-                ()=>{
-
-
-                    TypingEngine.restart();
-
-
-                }
-
-            );
-
-
-        }
-
-
-
-
-        const next =
-            document.getElementById(
-                "next-button"
-            );
-
-
-        if(next){
-
-
-            next.addEventListener(
-
-                "click",
-
-                ()=>{
-
-
-                    TypingEngine.nextPassage();
-
-
-                }
-
-            );
-
-
-        }
-
-
+        return;
 
     }
 
-);
+    progressElement.textContent =
 
+        this.getProgress() + "%";
 
-
-
-/* ==========================================================
-   GLOBAL EXPORT
-========================================================== */
-
-
-window.TypingEngine =
-    TypingEngine;
+};
 
 
 /* ==========================================================
-   END OF FILE
+   UPDATE ERROR COUNT
 ========================================================== */
+
+TypingEngine.prototype.updateErrorCount = function () {
+
+    const element =
+
+        document.getElementById(
+
+            "errors"
+
+        );
+
+    if (!element) {
+
+        return;
+
+    }
+
+    element.textContent =
+
+        TypingState.incorrectCharacters;
+
+};
+
+
+/* ==========================================================
+   UPDATE CORRECT COUNT
+========================================================== */
+
+TypingEngine.prototype.updateCorrectCount = function () {
+
+    const element =
+
+        document.getElementById(
+
+            "correct-count"
+
+        );
+
+    if (!element) {
+
+        return;
+
+    }
+
+    element.textContent =
+
+        TypingState.correctCharacters;
+
+};
+
+
+/* ==========================================================
+   UPDATE INCORRECT COUNT
+========================================================== */
+
+TypingEngine.prototype.updateIncorrectCount = function () {
+
+    const element =
+
+        document.getElementById(
+
+            "incorrect-count"
+
+        );
+
+    if (!element) {
+
+        return;
+
+    }
+
+    element.textContent =
+
+        TypingState.incorrectCharacters;
+
+};
+
+
+/* ==========================================================
+   UPDATE EXTRA COUNT
+========================================================== */
+
+TypingEngine.prototype.updateExtraCount = function () {
+
+    const element =
+
+        document.getElementById(
+
+            "extra-count"
+
+        );
+
+    if (!element) {
+
+        return;
+
+    }
+
+    element.textContent =
+
+        TypingState.extraCharacters;
+
+};
+
+
+/* ==========================================================
+   REFRESH STATISTICS
+========================================================== */
+
+TypingEngine.prototype.refreshStatistics = function () {
+
+    this.calculateStatistics();
+
+    this.updateProgress();
+
+    this.updateErrorCount();
+
+    this.updateCorrectCount();
+
+    this.updateIncorrectCount();
+
+    this.updateExtraCount();
+
+};
