@@ -1,0 +1,59 @@
+{
+  "version": "1.0",
+  "language": "english",
+  "category": "30wpm",
+  "difficulty": "beginner",
+  "recommendedWPM": 30,
+  "passages": [
+    {
+      "id": 1,
+      "title": "Daily Practice 1",
+      "text": "Typing every day improves speed, accuracy, and confidence. Small improvements made through regular practice lead to excellent long-term results."
+    },
+    {
+      "id": 2,
+      "title": "Daily Practice 2",
+      "text": "A good typing habit saves valuable time at work, school, and home. Focus on accuracy first, and speed will improve naturally with practice."
+    },
+    {
+      "id": 3,
+      "title": "Daily Practice 3",
+      "text": "Professional typists keep their eyes on the screen instead of the keyboard. This habit increases productivity and reduces typing mistakes."
+    },
+    {
+      "id": 4,
+      "title": "Daily Practice 4",
+      "text": "Learning touch typing requires patience and consistency. Practice a little every day instead of practicing for many hours only once a week."
+    },
+    {
+      "id": 5,
+      "title": "Daily Practice 5",
+      "text": "Correct finger placement helps reduce fatigue and improves typing efficiency. Relax your hands and maintain a comfortable sitting posture."
+    },
+    {
+      "id": 6,
+      "title": "Daily Practice 6",
+      "text": "Technology continues to change the way people communicate. Fast and accurate typing has become an important skill for students and professionals."
+    },
+    {
+      "id": 7,
+      "title": "Daily Practice 7",
+      "text": "Reading the complete sentence before typing helps maintain rhythm. Avoid rushing because accuracy is more important than raw speed."
+    },
+    {
+      "id": 8,
+      "title": "Daily Practice 8",
+      "text": "Practice with meaningful paragraphs instead of random words. Real sentences improve typing flow and help build better reading habits."
+    },
+    {
+      "id": 9,
+      "title": "Daily Practice 9",
+      "text": "Every mistake is an opportunity to improve. Stay calm, continue typing, and focus on developing consistent keyboard control."
+    },
+    {
+      "id": 10,
+      "title": "Daily Practice 10",
+      "text": "Smart Typing helps users measure typing speed, accuracy, and progress. Regular practice makes professional typing easier and more enjoyable."
+    }
+  ]
+}
