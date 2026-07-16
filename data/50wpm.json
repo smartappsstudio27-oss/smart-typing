@@ -1,0 +1,59 @@
+{
+  "version": "1.0",
+  "language": "english",
+  "category": "50wpm",
+  "difficulty": "upper-intermediate",
+  "recommendedWPM": 50,
+  "passages": [
+    {
+      "id": 1,
+      "title": "Professional Productivity",
+      "text": "Professional typing is more than pressing keys quickly. It combines speed, accuracy, consistency, and concentration to produce high-quality work in less time. Strong typing skills improve productivity across many industries."
+    },
+    {
+      "id": 2,
+      "title": "Continuous Learning",
+      "text": "Learning never stops in the modern workplace. People who invest time in improving technical and communication skills remain more competitive and adapt more easily to changing technologies and responsibilities."
+    },
+    {
+      "id": 3,
+      "title": "Software Development",
+      "text": "Software developers spend a significant portion of their day writing code, reading documentation, and communicating with teammates. Fast and accurate typing reduces interruptions and supports efficient problem solving."
+    },
+    {
+      "id": 4,
+      "title": "Time Management",
+      "text": "Effective time management begins with small daily habits. Completing routine tasks efficiently allows more time for planning, creative thinking, and solving important business challenges."
+    },
+    {
+      "id": 5,
+      "title": "Digital Communication",
+      "text": "Clear digital communication builds trust between individuals and organizations. Well-written messages with proper grammar and accurate typing create a professional impression and reduce misunderstandings."
+    },
+    {
+      "id": 6,
+      "title": "Keyboard Mastery",
+      "text": "Touch typing becomes natural through repetition and patience. Experienced typists rely on muscle memory instead of watching the keyboard, allowing them to focus entirely on the content they are creating."
+    },
+    {
+      "id": 7,
+      "title": "Practice Strategy",
+      "text": "The best practice sessions balance speed with precision. Review mistakes after each test, identify recurring errors, and focus on improving weak areas before increasing typing speed."
+    },
+    {
+      "id": 8,
+      "title": "Career Growth",
+      "text": "Employers value candidates who can work efficiently with digital tools. Strong typing skills support careers in administration, accounting, software development, customer support, education, and many other professions."
+    },
+    {
+      "id": 9,
+      "title": "Focus Under Pressure",
+      "text": "Maintaining focus during timed typing tests requires discipline and confidence. Avoid rushing when mistakes occur because recovering calmly usually produces better overall performance."
+    },
+    {
+      "id": 10,
+      "title": "Smart Typing Platform",
+      "text": "Smart Typing provides structured practice, detailed performance statistics, customizable lessons, and future online leaderboards. The goal is to help every learner build confidence through measurable daily improvement."
+    }
+  ]
+}
