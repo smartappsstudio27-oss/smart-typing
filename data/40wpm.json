@@ -1,0 +1,59 @@
+{
+  "version": "1.0",
+  "language": "english",
+  "category": "40wpm",
+  "difficulty": "intermediate",
+  "recommendedWPM": 40,
+  "passages": [
+    {
+      "id": 1,
+      "title": "Office Communication",
+      "text": "Clear communication and accurate typing improve workplace productivity. Employees who type confidently can prepare reports, emails, and documents more efficiently while reducing errors."
+    },
+    {
+      "id": 2,
+      "title": "Learning Technology",
+      "text": "Modern technology changes rapidly, so continuous learning is essential. Practicing typing regularly allows you to work faster and spend more time solving real problems instead of correcting mistakes."
+    },
+    {
+      "id": 3,
+      "title": "Healthy Typing Habits",
+      "text": "Maintain good posture while typing and keep your wrists relaxed. Taking short breaks every hour helps reduce fatigue and supports long-term comfort during extended computer use."
+    },
+    {
+      "id": 4,
+      "title": "Building Consistency",
+      "text": "Consistency is more valuable than occasional long practice sessions. Even fifteen minutes of focused typing every day can produce noticeable improvements over several weeks."
+    },
+    {
+      "id": 5,
+      "title": "Accuracy Before Speed",
+      "text": "Many beginners try to type as fast as possible, but accuracy should always come first. Speed naturally increases when your fingers learn the correct keyboard positions."
+    },
+    {
+      "id": 6,
+      "title": "Digital Skills",
+      "text": "Typing is one of the most useful digital skills for students, developers, accountants, and office professionals. Better typing skills save time in almost every computer-based task."
+    },
+    {
+      "id": 7,
+      "title": "Professional Practice",
+      "text": "Professional typists develop rhythm through regular practice instead of memorizing individual keys. Smooth movement across the keyboard is more important than sudden bursts of speed."
+    },
+    {
+      "id": 8,
+      "title": "Focus and Concentration",
+      "text": "A quiet environment improves concentration during typing practice. Avoid looking at the keyboard and allow your fingers to build muscle memory through repetition."
+    },
+    {
+      "id": 9,
+      "title": "Daily Improvement",
+      "text": "Tracking your typing statistics helps identify strengths and weaknesses. Monitoring words per minute, accuracy, and error count makes progress easier to measure."
+    },
+    {
+      "id": 10,
+      "title": "Smart Typing Practice",
+      "text": "Smart Typing is designed to help users improve typing speed through structured practice sessions, detailed performance analysis, and continuous progress tracking."
+    }
+  ]
+}
