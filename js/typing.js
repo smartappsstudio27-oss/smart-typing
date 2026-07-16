@@ -119,6 +119,7 @@ class TypingEngine {
         this.cacheDOM();
        this.initializePassage();
         this.bindEvents();
+       this.enableSecurity();
 
         TypingState.initialized = true;
 
@@ -577,7 +578,9 @@ TypingEngine.prototype.processTyping = function () {
 
     this.updateCursor();
    this.refreshStatistics();
+   this.detectCheating();
     this.checkCompletion();
+   
 
 };
 
@@ -1023,5 +1026,485 @@ TypingEngine.prototype.refreshStatistics = function () {
     this.updateIncorrectCount();
 
     this.updateExtraCount();
+
+   this.updateLiveStatistics();
+
+};
+/* ==========================================================
+   ELAPSED TIME
+========================================================== */
+
+TypingEngine.prototype.getElapsedSeconds = function () {
+
+    if (!TypingState.started) {
+
+        return 0;
+
+    }
+
+    const endTime =
+
+        TypingState.finished
+
+            ? TypingState.endTime
+
+            : Date.now();
+
+    return Math.max(
+
+        1,
+
+        Math.floor(
+
+            (endTime - TypingState.startTime) / 1000
+
+        )
+
+    );
+
+};
+
+
+/* ==========================================================
+   ACCURACY
+========================================================== */
+
+TypingEngine.prototype.getAccuracy = function () {
+
+    const totalTyped =
+
+        TypingState.correctCharacters +
+
+        TypingState.incorrectCharacters +
+
+        TypingState.extraCharacters;
+
+    if (totalTyped === 0) {
+
+        return 100;
+
+    }
+
+    return (
+
+        (TypingState.correctCharacters / totalTyped)
+
+        * 100
+
+    ).toFixed(2);
+
+};
+
+
+/* ==========================================================
+   GROSS WPM
+========================================================== */
+
+TypingEngine.prototype.getGrossWPM = function () {
+
+    const minutes =
+
+        this.getElapsedSeconds() / 60;
+
+    if (minutes <= 0) {
+
+        return 0;
+
+    }
+
+    return Math.round(
+
+        (
+
+            TypingState.typedText.length / 5
+
+        ) / minutes
+
+    );
+
+};
+
+
+/* ==========================================================
+   NET WPM
+========================================================== */
+
+TypingEngine.prototype.getNetWPM = function () {
+
+    const gross =
+
+        this.getGrossWPM();
+
+    const minutes =
+
+        this.getElapsedSeconds() / 60;
+
+    if (minutes <= 0) {
+
+        return 0;
+
+    }
+
+    const penalty =
+
+        TypingState.incorrectCharacters /
+
+        5 /
+
+        minutes;
+
+    return Math.max(
+
+        0,
+
+        Math.round(
+
+            gross - penalty
+
+        )
+
+    );
+
+};
+
+
+/* ==========================================================
+   CPM
+========================================================== */
+
+TypingEngine.prototype.getCPM = function () {
+
+    const minutes =
+
+        this.getElapsedSeconds() / 60;
+
+    if (minutes <= 0) {
+
+        return 0;
+
+    }
+
+    return Math.round(
+
+        TypingState.correctCharacters /
+
+        minutes
+
+    );
+
+};
+
+
+/* ==========================================================
+   WORD COUNT
+========================================================== */
+
+TypingEngine.prototype.getTypedWords = function () {
+
+    return TypingState.typedText
+
+        .trim()
+
+        .split(/\s+/)
+
+        .filter(
+
+            word => word.length > 0
+
+        ).length;
+
+};
+
+
+/* ==========================================================
+   UPDATE LIVE STATS
+========================================================== */
+
+TypingEngine.prototype.updateLiveStatistics = function () {
+
+    const accuracyElement =
+
+        document.getElementById(
+
+            "accuracy"
+
+        );
+
+    const wpmElement =
+
+        document.getElementById(
+
+            "wpm"
+
+        );
+
+    const netElement =
+
+        document.getElementById(
+
+            "net-wpm"
+
+        );
+
+    const cpmElement =
+
+        document.getElementById(
+
+            "cpm"
+
+        );
+
+    const wordsElement =
+
+        document.getElementById(
+
+            "words"
+
+        );
+
+    if (accuracyElement) {
+
+        accuracyElement.textContent =
+
+            this.getAccuracy() + "%";
+
+    }
+
+    if (wpmElement) {
+
+        wpmElement.textContent =
+
+            this.getGrossWPM();
+
+    }
+
+    if (netElement) {
+
+        netElement.textContent =
+
+            this.getNetWPM();
+
+    }
+
+    if (cpmElement) {
+
+        cpmElement.textContent =
+
+            this.getCPM();
+
+    }
+
+    if (wordsElement) {
+
+        wordsElement.textContent =
+
+            this.getTypedWords();
+
+    }
+
+};
+/* ==========================================================
+   SECURITY EVENTS
+========================================================== */
+
+TypingEngine.prototype.bindSecurityEvents = function () {
+
+    if (!this.input) {
+
+        return;
+
+    }
+
+    /* Disable Paste */
+
+    this.input.addEventListener(
+
+        "paste",
+
+        (event) => {
+
+            event.preventDefault();
+
+            this.showWarning(
+
+                "Paste is not allowed."
+
+            );
+
+        }
+
+    );
+
+    /* Disable Copy */
+
+    this.input.addEventListener(
+
+        "copy",
+
+        (event) => {
+
+            event.preventDefault();
+
+        }
+
+    );
+
+    /* Disable Cut */
+
+    this.input.addEventListener(
+
+        "cut",
+
+        (event) => {
+
+            event.preventDefault();
+
+        }
+
+    );
+
+    /* Disable Drag */
+
+    this.input.addEventListener(
+
+        "dragstart",
+
+        (event) => {
+
+            event.preventDefault();
+
+        }
+
+    );
+
+    /* Disable Drop */
+
+    this.input.addEventListener(
+
+        "drop",
+
+        (event) => {
+
+            event.preventDefault();
+
+        }
+
+    );
+
+};
+
+
+/* ==========================================================
+   KEYBOARD SHORTCUTS
+========================================================== */
+
+TypingEngine.prototype.bindKeyboardProtection = function () {
+
+    if (!this.input) {
+
+        return;
+
+    }
+
+    this.input.addEventListener(
+
+        "keydown",
+
+        (event) => {
+
+            if (
+
+                event.ctrlKey &&
+
+                [
+
+                    "v",
+
+                    "c",
+
+                    "x",
+
+                    "a"
+
+                ].includes(
+
+                    event.key.toLowerCase()
+
+                )
+
+            ) {
+
+                event.preventDefault();
+
+            }
+
+        }
+
+    );
+
+};
+
+
+/* ==========================================================
+   WARNING MESSAGE
+========================================================== */
+
+TypingEngine.prototype.showWarning = function (
+
+    message
+
+) {
+
+    console.warn(
+
+        message
+
+    );
+
+};
+
+
+/* ==========================================================
+   CHEAT DETECTION
+========================================================== */
+
+TypingEngine.prototype.detectCheating = function () {
+
+    const typedLength =
+
+        TypingState.typedText.length;
+
+    const expectedLength =
+
+        TypingState.currentIndex;
+
+    if (
+
+        typedLength >
+
+        expectedLength + 5
+
+    ) {
+
+        console.warn(
+
+            "Suspicious typing detected."
+
+        );
+
+    }
+
+};
+
+
+/* ==========================================================
+   ENABLE SECURITY
+========================================================== */
+
+TypingEngine.prototype.enableSecurity = function () {
+
+    this.bindSecurityEvents();
+
+    this.bindKeyboardProtection();
 
 };
