@@ -1,0 +1,59 @@
+{
+  "version": "1.0",
+  "language": "english",
+  "category": "60wpm",
+  "difficulty": "advanced",
+  "recommendedWPM": 60,
+  "passages": [
+    {
+      "id": 1,
+      "title": "Professional Excellence",
+      "text": "Professional typists combine speed, precision, and consistency while maintaining excellent concentration throughout long working sessions. High accuracy is often more valuable than achieving a slightly higher typing speed because every correction consumes valuable time."
+    },
+    {
+      "id": 2,
+      "title": "Competitive Examination",
+      "text": "Many government and private sector recruitment examinations include typing tests to evaluate practical computer skills. Regular practice under timed conditions develops confidence and prepares candidates for real examination environments."
+    },
+    {
+      "id": 3,
+      "title": "Software Engineering",
+      "text": "Software engineers spend considerable time writing source code, reviewing documentation, preparing technical reports, and communicating with distributed teams. Efficient typing allows developers to focus on logic and problem solving instead of keyboard navigation."
+    },
+    {
+      "id": 4,
+      "title": "Data Accuracy",
+      "text": "Accurate data entry is essential in banking, accounting, healthcare, education, and administration. A single typing mistake may affect calculations, records, or communication, making careful typing an essential professional skill."
+    },
+    {
+      "id": 5,
+      "title": "Continuous Improvement",
+      "text": "Long-term improvement depends on disciplined daily practice rather than occasional intensive sessions. Reviewing completed tests, understanding recurring mistakes, and gradually increasing difficulty produces steady progress over time."
+    },
+    {
+      "id": 6,
+      "title": "Workplace Efficiency",
+      "text": "Efficient keyboard skills reduce repetitive effort, improve document preparation speed, and increase overall productivity. Professionals who type confidently complete routine tasks faster and dedicate more time to analytical work."
+    },
+    {
+      "id": 7,
+      "title": "Focus and Discipline",
+      "text": "Maintaining concentration during extended typing sessions requires patience and mental discipline. Reading slightly ahead while typing creates a smoother rhythm and minimizes unnecessary pauses between words."
+    },
+    {
+      "id": 8,
+      "title": "Digital Transformation",
+      "text": "Organizations increasingly depend on digital communication, cloud collaboration, and online documentation. Strong typing skills remain a valuable foundation for professionals working in modern technology-driven environments."
+    },
+    {
+      "id": 9,
+      "title": "Performance Analysis",
+      "text": "Measuring words per minute, gross speed, net speed, accuracy percentage, and error count provides meaningful insights into typing performance. Objective statistics help learners identify strengths and prioritize areas requiring additional practice."
+    },
+    {
+      "id": 10,
+      "title": "Smart Typing Vision",
+      "text": "Smart Typing is designed as a complete professional typing platform with structured lessons, multilingual support, detailed analytics, achievement tracking, certificates, cloud synchronization, and future artificial intelligence powered practice generation."
+    }
+  ]
+}
